@@ -1,3 +1,13 @@
+:root {
+  --red-700:#B91C1C; --red-600:#DC2626; --red-100:#FEE2E2;
+  --orange-700:#C2410C; --orange-600:#EA580C; --orange-100:#FFEDD5;
+  --text-on-dark:#FFFFFF; --text-on-light:#111827;
+  --muted:#6B7280; --surface:#0B0F1A; --border:#FFFFFF1A;
+}
+.dark {
+  --surface:#0B0F1A;
+}
+
 .App {
   text-align: center;
 }
