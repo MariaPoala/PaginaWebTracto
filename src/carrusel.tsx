@@ -1,12 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-
-// ---------------------------------------------
-// HeroCarousel – Responsive image carousel
-// React + TypeScript + TailwindCSS (no external deps)
-// Features: autoplay, pause on hover, swipe on touch, keyboard nav,
-// indicators, arrows, gradient overlay, subtle Ken Burns effect.
-// Just import and use <HeroCarousel /> or pass your own slides.
-// ---------------------------------------------
+import React, { useEffect, useMemo, useRef, useState } from "react"; 
 
 type Slide = {
   id: string;

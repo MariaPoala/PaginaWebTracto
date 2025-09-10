@@ -18,11 +18,11 @@ type Brand = { name: string; logo?: string; href?: string };
 // };
 
 const DEFAULT_NAV: NavItem[] = [
-  { label: "Inicio", href: "/" },
-  { label: "Servicios",href: "#"},
-  { label: "Precios", href: "./paginauno" },
-  { label: "Nosotros", href: "#" },
-  { label: "Contacto", href: "../contact" },
+  { label: "INICIO", href: "/" },
+  { label: "NOSOTROS",href: "../nosotros"},
+  { label: "PRODUCTOS", href: "../productos" },
+  { label: "SERVICIOS", href: "../servicios" },
+  { label: "CONTACTO", href: "../contact" },
 ];
 
 export default function Header({
@@ -104,14 +104,14 @@ export default function Header({
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all ",
+        "sticky top-0 z-50 w-full transition-all",
         scrolled
           ? "backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-neutral-900/70 border-b border-gray-200/70 dark:border-neutral-800"
-          : "bg-white/0 dark:bg-neutral-900/0"
+          : "bg-white/0 dark:bg-brand-red-700"
       )}
       role="banner"
     >
-      <div className="mx-auto max-w-7xl bg-brand-red-700 px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
 
 
@@ -127,8 +127,8 @@ export default function Header({
                 className={cn(
                   "px-3 py-2 text-sm font-medium rounded-lg hover:text-orange-500 dark:hover:bg-neutral-300 ",
                   isActive(item.href)
-                    ? "text-red-800 dark:text-white"
-                    : "text-red-700 hover:text-orange-500 dark:text-orange-200 dark:hover:text-orange-500"
+                    ? "text-red-800 dark:text-orange-300"
+                    : "text-red-700 hover:text-orange-500 dark:text-white dark:hover:text-orange-500"
                 )}
               >
                 {item.label}
@@ -169,7 +169,7 @@ export default function Header({
         {/* panel */}
         <aside
           className={cn(
-            "absolute right-0 top-0 h-full w-[88%] max-w-sm bg-white dark:bg-neutral-900 border-l border-gray-200 dark:border-neutral-800 shadow-xl p-4",
+            "absolute right-0 top-0 h-full w-[88%] max-w-sm bg-white dark:bg-neutral-900 border-l border-gray-200 dark:bg-brand-red-700 shadow-xl p-4",
             "transition-transform",
             mobileOpen ? "translate-x-0" : "translate-x-full"
           )}
@@ -204,23 +204,7 @@ export default function Header({
                       mobileAccordions[idx] ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     )}
                   >
-                    <div className="min-h-0">
-                      {item.children.map((ch, i) => (
-                        <a
-                          key={i}
-                          href={ch.href}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-neutral-800"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          <div className="font-medium text-gray-800 dark:text-gray-100">{ch.label}</div>
-                          {ch.description && (
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                              {ch.description}
-                            </div>
-                          )}
-                        </a>
-                      ))}
-                    </div>
+                    
                   </div>
                 </div>
               ) : (
@@ -230,7 +214,7 @@ export default function Header({
                   className={cn(
                     "block rounded-xl px-4 py-3 text-sm font-medium",
                     "text-gray-800 hover:bg-gray-50 dark:text-gray-100 dark:hover:bg-neutral-800",
-                    isActive(item.href) && "text-indigo-600 dark:text-indigo-400"
+                    isActive(item.href) && "text-red-700 dark:text-orange-200"
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -307,43 +291,4 @@ function Burger({ open }: { open: boolean }) {
     </div>
   );
 }
-// src/Navbar.tsx
-// import { NavLink } from "react-router-dom";
 
-// type NavItem = { label: string; to: string };
-
-// const DEFAULT_NAV: NavItem[] = [
-//   { label: "Inicio",    to: "/" },
-//   { label: "Servicios", to: "/servicios" },
-//   { label: "Precios",   to: "/paginauno" },
-//   { label: "Nosotros",  to: "/nosotros" },
-//   { label: "Contacto",  to: "/contact" },
-// ];
-
-// export default function Navbar() {
-//   return (
-//     <header className="sticky top-0 z-40 bg-brand-red-700 text-white">
-//       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-//         <span className="font-semibold">MiMarca</span>
-//         <ul className="flex gap-4">
-//           {DEFAULT_NAV.map((item) => (
-//             <li key={item.to}>
-//               <NavLink
-//                 to={item.to}
-//                 className={({ isActive }) =>
-//                   `rounded-lg px-3 py-2 text-sm transition ${
-//                     isActive
-//                       ? "bg-white text-neutral-900"
-//                       : "text-white/90 hover:bg-white/10"
-//                   }`
-//                 }
-//               >
-//                 {item.label}
-//               </NavLink>
-//             </li>
-//           ))}
-//         </ul>
-//       </nav>
-//     </header>
-//   );
-// }

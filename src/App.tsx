@@ -1,29 +1,27 @@
-
-import './App.css';
+import "./App.css";
 import React from "react";
-import { BrowserRouter, Routes, Route, NavLink, Outlet, useLocation } from "react-router-dom";
-import ContactInfoPanel from './pages/contact.tsx';
-import HeroCarousel from './carrusel.tsx';
-import Homes from './pages/home.tsx'
-type NavItem = { label: string; to: string };
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const NAV: NavItem[] = [
-  { label: "Inicio", to: "/" },
-  { label: "Servicios", to: "/servicios" },
-  { label: "Precios", to: "/paginauno" },
-  { label: "Nosotros", to: "/nosotros" },
-  { label: "Contacto", to: "/contact" },
-];
+import Homes from "./pages/home.tsx";
+import Nosotros from "./pages/nosotros.tsx";
+import Productos from "./pages/productos.tsx";
+import Servicios from "./pages/servicios.tsx";
+import ContactInfoPanel from "./pages/contact.tsx";
 
-// ---- Shell/Layout con header + outlet + footer --------------------------------
+
 function ShellLayout() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white flex flex-col">
-     {/* <HeroCarousel></HeroCarousel> */}
       <main className="flex-1">
         <div className="mx-auto max-w-7xl px-6 py-8">
-        
-          <Outlet />
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/nosotros" element={<Nosotro />} />
+            <Route path="/productos" element={<Producto />} />
+            <Route path="/servicios" element={<Servicio />} />
+            <Route path="/contact" element={<Contacto />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </main>
     </div>
@@ -33,61 +31,36 @@ function ShellLayout() {
 function Home() {
   return (
     <section>
-      <Homes></Homes>
+      <Homes />
     </section>
   );
 }
-function Servicios() {
+function Servicio() {
   return (
     <section>
-      <h1 className="text-2xl font-semibold">Servicios</h1>
-      <p className="mt-3 text-white/80">Describe tus servicios.</p>
+      <Servicios />
     </section>
   );
 }
-function Precios() {
+function Producto() {
   return (
     <section>
-      <h1 className="text-2xl font-semibold">Precios</h1>
-      <p className="mt-3 text-white/80">Planes y tarifas.</p>
+      <Productos />
     </section>
   );
 }
-function Nosotros() {
+function Nosotro() {
   return (
     <section>
-      <Homes></Homes>
+      <Nosotros />
     </section>
   );
 }
 function Contacto() {
   return (
     <section>
-     <ContactInfoPanel></ContactInfoPanel>
+      <ContactInfoPanel />
     </section>
-  );
-}
-
-
-
-
-
-// ---- App principal con enrutamiento anidado (Layout persistente) ----------------
-export default function AppRouterLayout() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<ShellLayout />}> {/* Header y Footer persisten */}
-          <Route index element={<Home />} />
-          <Route path="servicios" element={<Servicios />} />
-          <Route path="paginauno" element={<Precios />} />
-          <Route path="nosotros" element={<Nosotros />} />
-          <Route path="contact" element={<Contacto />} />
-          {/* 404 simple */}
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
   );
 }
 
@@ -97,5 +70,13 @@ function NotFound() {
       <h1 className="text-2xl font-semibold">Página no encontrada</h1>
       <p className="mt-3 text-white/70">La ruta solicitada no existe.</p>
     </section>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ShellLayout />
+    </BrowserRouter>
   );
 }
