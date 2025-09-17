@@ -168,7 +168,7 @@ export default function Header({
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between p-4">
+          <div className="flex items-center justify-between p-4 ">
             <a href={brand?.href || "/"} className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
               {brand?.logo ? (
                 <img src={brand.logo} alt={brand.name} className="h-8 w-8 rounded-lg object-cover" />
@@ -188,7 +188,7 @@ export default function Header({
             </button>
           </div>
 
-          <div className="px-4 pb-4">
+          <div className="px-4 pb-4 bg-red-900">
             <a
               href={ctaHref}
               className="mb-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:from-red-700 hover:to-orange-600"
