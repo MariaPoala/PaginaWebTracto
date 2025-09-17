@@ -39,41 +39,30 @@ interface InteractiveFooterProps {
 
 const DEFAULT_GROUPS: LinkGroup[] = [
   {
-    title: "Producto",
+    title: "Productos",
     links: [
-      { label: "Características", href: "#features" },
-      { label: "Precios", href: "#pricing" },
-      { label: "Integraciones", href: "#integrations" },
-      { label: "Actualizaciones", href: "#changelog" },
+      { label: "Venta de tractores", href: "#features" },
+      { label: "Repuestos", href: "#pricing" },
+      { label: "Servicios", href: "#integrations" }
     ],
   },
   {
-    title: "Compañía",
+    title: "Enlaces",
     links: [
-      { label: "Nosotros", href: "#about" },
-      { label: "Carreras", href: "#careers" },
-      { label: "Blog", href: "#blog" },
-      { label: "Prensa", href: "#press" },
+      { label: "Inicio", href: "#about" },
+      { label: "Nosotros", href: "#careers" },
+      { label: "Contacto", href: "#blog" }
     ],
   },
   {
-    title: "Recursos",
+    title: "Contacto",
     links: [
-      { label: "Documentación", href: "#docs" },
-      { label: "Guías", href: "#guides" },
-      { label: "API", href: "#api" },
-      { label: "Comunidad", href: "#community" },
+      { label: "Dirección: tractro calle principal s/n", href: "#docs" },
+      { label: "Teléfono 1: +51 987456321", href: "#guides" },
+      { label: "Teléfono 2: +51 987456321", href: "#guides" },
+      { label: "Correo: tractrosac@gmail.com", href: "#api" }
     ],
-  },
-  {
-    title: "Soporte",
-    links: [
-      { label: "Centro de ayuda", href: "#help" },
-      { label: "Estado del servicio", href: "#status" },
-      { label: "Seguridad", href: "#security" },
-      { label: "Contacto", href: "#contact" },
-    ],
-  },
+  }
 ];
 
 const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
@@ -103,15 +92,9 @@ const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
 };
 
 export default function InteractiveFooter({
-  brand = { name: "TuMarca", tagline: "Creamos experiencias memorables" },
+  brand = { name: "Tractro SAC", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
   groups = DEFAULT_GROUPS,
-  newsletter = {
-    enabled: true,
-    title: "Suscríbete a nuestro boletín",
-    subtitle: "Novedades, tips y lanzamientos. Uno a la semana.",
-    placeholder: "Tu correo electrónico",
-    ctaLabel: "Suscribirme",
-  },
+  
   languages = ["ES", "EN", "PT"],
   className = "",
 }: InteractiveFooterProps) {
@@ -163,21 +146,23 @@ export default function InteractiveFooter({
   return (
     <footer
       className={
-        "relative overflow-hidden border-t border-white/10 bg-neutral-950 text-neutral-200 dark:bg-neutral-950 " +
+        "relative overflow-hidden border-t border-white/10 bg-brand-orange-700 text-neutral-200 dark:bg-brand-orange-700 " +
         (className || "")
       }
       aria-label="Pie de página"
     >
       {/* Deco superior */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-24 h-44 bg-gradient-to-b from-fuchsia-500/20 via-sky-500/10 to-transparent blur-2xl" />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-24 h-44
+              bg-gradient-to-b from-amber-300/35 via-orange-200/20 to-transparent
+              blur-2xl" />
 
-      <div className="mx-auto max-w-7xl px-6 pb-10 pt-12 md:pb-12 md:pt-16">
+      <div className="mx-auto max-w-7xl px-6 pb-6 pt-8 md:pb-4 md:pt-10">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 gap-10 md:grid-cols-12"
+          className="grid grid-cols-1 gap-2 md:grid-cols-12"
         >
           {/* Col brand + newsletter */}
           <div className="md:col-span-5">
@@ -194,57 +179,7 @@ export default function InteractiveFooter({
             {brand.tagline && <p className="mt-3 max-w-md text-sm text-neutral-400">{brand.tagline}</p>}
 
             {/* Newsletter */}
-            {newsletter.enabled && (
-              <form onSubmit={submitNewsletter} className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-3 ring-1 ring-white/10 backdrop-blur">
-                <h3 className="text-sm font-medium text-white/90">{newsletter.title}</h3>
-                {newsletter.subtitle && <p className="mt-1 text-xs text-neutral-400">{newsletter.subtitle}</p>}
-                <div className="mt-3 flex items-center gap-2">
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={newsletter.placeholder}
-                    className="w-full rounded-xl border border-white/10 bg-neutral-900/70 px-3 py-2 text-sm text-white placeholder:text-neutral-500 outline-none ring-0 focus:border-white/30"
-                  />
-                  <button
-                    type="submit"
-                    disabled={nlStatus === "loading"}
-                    className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow ring-1 ring-black/5 transition enabled:hover:opacity-90 disabled:opacity-60"
-                  >
-                    {nlStatus === "loading" ? (
-                      <span className="inline-flex items-center gap-2"><Spinner /> Enviando</span>
-                    ) : nlStatus === "ok" ? (
-                      <span className="inline-flex items-center gap-2">¡Listo!</span>
-                    ) : (
-                      <span>{newsletter.ctaLabel}</span>
-                    )}
-                  </button>
-                </div>
-                <AnimatePresence>
-                  {nlStatus === "error" && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      className="mt-2 text-xs text-rose-400"
-                    >
-                      Por favor, ingresa un correo válido.
-                    </motion.p>
-                  )}
-                  {nlStatus === "ok" && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -4 }}
-                      className="mt-2 text-xs text-emerald-400"
-                    >
-                      ¡Gracias por suscribirte! Te enviaremos novedades pronto.
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </form>
-            )}
+           
 
             {/* Social */}
             <div className="mt-6 flex items-center gap-3">
@@ -270,7 +205,7 @@ export default function InteractiveFooter({
 
           {/* Col enlaces (acordeones en mobile) */}
           <div className="md:col-span-7">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3  ">
               {groups.map((g, idx) => (
                 <div key={g.title} className="rounded-2xl border border-white/10 bg-white/5 p-4 ring-1 ring-white/10">
                   {/* Header */}
@@ -305,7 +240,7 @@ export default function InteractiveFooter({
                         <li key={l.label}>
                           <a
                             href={l.href}
-                            className="group inline-flex items-center gap-2 rounded-lg px-1 py-1 text-neutral-300 transition hover:text-white"
+                            className="group inline-flex items-center gap-1 rounded-lg px-1 py-1 text-neutral-300 transition hover:text-white"
                           >
                             <span className="relative">
                               {l.label}
@@ -333,51 +268,10 @@ export default function InteractiveFooter({
         </motion.div>
 
         {/* Barra inferior */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-neutral-400 md:flex-row">
+        <div className="mt-8 flex flex-row items-center justify-center gap-2 border-t border-white/10 pt-4 text-sm text-neutral-400 md:flex-row">
           <p>
             © {year} {brand.name}. Todos los derechos reservados.
           </p>
-
-          <div className="flex items-center gap-3">
-            {/* Idioma */}
-            <div className="relative">
-              <select
-                aria-label="Idioma"
-                value={lang}
-                onChange={(e) => setLang(e.target.value)}
-                className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 pr-8 text-sm text-neutral-200 outline-none ring-1 ring-white/10 focus:ring-white/30"
-              >
-                {languages.map((l) => (
-                  <option key={l} value={l} className="bg-neutral-900">
-                    {l}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Tema */}
-            <button
-              onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-neutral-200 ring-1 ring-white/10 transition hover:bg-white/10"
-              aria-label="Cambiar tema"
-            >
-              {theme === "dark" ? (
-                <SunIcon />
-              ) : (
-                <MoonIcon />
-              )}
-              <span className="hidden sm:inline">{theme === "dark" ? "Claro" : "Oscuro"}</span>
-            </button>
-
-            {/* Legales */}
-            <a href="#terms" className="rounded-lg px-2 py-1 hover:text-neutral-200">
-              Términos
-            </a>
-            <span aria-hidden>·</span>
-            <a href="#privacy" className="rounded-lg px-2 py-1 hover:text-neutral-200">
-              Privacidad
-            </a>
-          </div>
         </div>
       </div>
 

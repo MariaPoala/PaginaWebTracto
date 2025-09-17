@@ -5,12 +5,13 @@
   --muted:#6B7280; --surface:#0B0F1A; --border:#FFFFFF1A;
 }
 .dark {
-  --surface:#0B0F1A;
+  --surface:#1a140b;
 }
 
 .App {
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -24,7 +25,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffcf87;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
