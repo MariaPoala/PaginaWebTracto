@@ -17,15 +17,10 @@ import {
     type LucideIcon,
 } from "lucide-react";
 
-/* =========================
-   Tipos
-========================= */
+
 type TimelineItem = { year: string; title: string; text: string };
 type TeamMember = { name: string; role: string; photo?: string };
 
-/* =========================
-   Data mock (reemplaza por tu info real)
-========================= */
 const TIMELINE: TimelineItem[] = [
     {
         year: "2018",
@@ -51,9 +46,7 @@ const TEAM: TeamMember[] = [
     { name: "Luis Huamán", role: "Técnico en Campo", photo: "https://i.pravatar.cc/300?img=5" },
 ];
 
-/* =========================
-   Helpers UI
-========================= */
+
 const fadeUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -155,13 +148,11 @@ function TeamCard({ m }: { m: TeamMember }) {
     );
 }
 
-/* =========================
-   Página
-========================= */
+
 export default function Nosotros(): JSX.Element {
     return (
         <main className="bg-white">
-            {/* Hero / Intro */}
+
             <Section>
                 <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
                     <div>
@@ -191,7 +182,7 @@ export default function Nosotros(): JSX.Element {
                         </motion.div>
                     </div>
 
-                    {/* Mosaic */}
+        
                     <motion.div {...fadeUp} className="grid grid-cols-2 grid-rows-2 gap-3">
                         <div className="col-span-1 row-span-2 overflow-hidden rounded-2xl border border-orange-100 bg-slate-100">
                             <img src="https://i.pinimg.com/1200x/18/ce/60/18ce603c8eeab266994e6c63dd0c2b79.jpg" alt="Tractor" className="h-full w-full object-cover" />
@@ -206,7 +197,7 @@ export default function Nosotros(): JSX.Element {
                 </div>
             </Section>
 
-            {/* Misión / Visión / Valores */}
+
             <Section>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                     <ValueCard icon={Target} title="Misión" text="Impulsar la productividad del campo con maquinaria y soporte confiables." />
@@ -215,7 +206,7 @@ export default function Nosotros(): JSX.Element {
                 </div>
             </Section>
 
-            {/* Nuestros pilares */}
+
             <Section>
                 <AccentTitle subtitle="Lo que nos diferencia">Nuestros pilares</AccentTitle>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -228,7 +219,7 @@ export default function Nosotros(): JSX.Element {
                 </div>
             </Section>
 
-            {/* CTA final */}
+
             <Section>
                 <div className="relative overflow-hidden rounded-2xl border border-orange-100 bg-gradient-to-r from-orange-50 to-red-50 p-6">
                     <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2">

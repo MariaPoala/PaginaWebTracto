@@ -426,7 +426,7 @@ function FiltersPanel({
         </div>
       </div>
 
-      {/* Stock repuestos */}
+
       <div className="mt-5">
         <label className="inline-flex cursor-pointer items-center gap-2 text-sm text-slate-700">
           <input type="checkbox" className="h-4 w-4 accent-orange-600" checked={soloStock} onChange={(e) => setSoloStock(e.target.checked)} />
@@ -437,9 +437,6 @@ function FiltersPanel({
   );
 }
 
-/* =====================================
-   Página de Productos (filtros siempre visibles y responsivos)
-===================================== */
 export default function ProductosPage(): JSX.Element {
   const [q, setQ] = useState<string>("");
   const [tipo, setTipo] = useState<TipoProducto | "todos">("todos");
@@ -453,13 +450,13 @@ export default function ProductosPage(): JSX.Element {
   const [sort, setSort] = useState<"relevancia" | "precio_asc" | "precio_desc">("relevancia");
   const [view, setView] = useState<"grid" | "list">("grid");
 
-  // Marcas disponibles
+
   const marcasDisponibles = useMemo(
     () => Array.from(new Set(DATA.map((d) => d.marca).filter(Boolean))) as string[],
     []
   );
 
-  // Filtrado
+
   const filtrados = useMemo(() => {
     const text = q.trim().toLowerCase();
     let arr = DATA.filter((p) => {
@@ -486,7 +483,7 @@ export default function ProductosPage(): JSX.Element {
     return arr;
   }, [q, tipo, marca, precioMin, precioMax, hpMin, hpMax, traccion, soloStock, sort]);
 
-  // Paginación simple (cliente)
+
   const [page, setPage] = useState<number>(1);
   const pageSize = 12;
   const totalPages = Math.max(1, Math.ceil(filtrados.length / pageSize));
@@ -497,7 +494,7 @@ export default function ProductosPage(): JSX.Element {
 
   return (
     <main className="bg-white">
-      {/* Encabezado */}
+
       <Section>
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -505,7 +502,7 @@ export default function ProductosPage(): JSX.Element {
             <p className="text-slate-600">Tractores y repuestos con soporte técnico en todo el Perú.</p>
             <div className="mt-3 h-1 w-28 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-red-600" />
           </div>
-          {/* Orden + vista (visible también en móvil) */}
+
           <div className="flex items-center gap-2">
             <div className="relative">
               <select
@@ -538,7 +535,6 @@ export default function ProductosPage(): JSX.Element {
           </div>
         </div>
 
-        {/* Buscador y chips */}
         <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-1 items-center gap-2">
@@ -563,7 +559,6 @@ export default function ProductosPage(): JSX.Element {
 
       <Section className="pt-0">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,320px),1fr]">
-          {/* Filtros SIEMPRE visibles. En móvil ocupan toda la fila y quedan sobre el listado */}
           <FiltersPanel
             tipo={tipo}
             setTipo={setTipo}
@@ -585,7 +580,7 @@ export default function ProductosPage(): JSX.Element {
           />
 
           <div>
-            {/* Resumen filtros */}
+
             <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-slate-600">
               <span className="rounded-full bg-slate-100 px-2.5 py-1">{filtrados.length} resultados</span>
               {tipo !== "todos" && (
@@ -637,7 +632,7 @@ export default function ProductosPage(): JSX.Element {
               )}
             </div>
 
-            {/* Grid/List responsive */}
+
             <div
               className={
                 view === "grid"
@@ -654,14 +649,14 @@ export default function ProductosPage(): JSX.Element {
               )}
             </div>
 
-            {/* Empty state */}
+
             {pageItems.length === 0 && (
               <div className="rounded-2xl border border-dashed border-orange-300 p-10 text-center text-slate-500">
                 No encontramos resultados con esos filtros.
               </div>
             )}
 
-            {/* Paginación */}
+
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}

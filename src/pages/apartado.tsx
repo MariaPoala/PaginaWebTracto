@@ -15,9 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-// =====================
-// TIPOS
-// =====================
+
 type TractorItem = {
   id: number;
   nombre: string;
@@ -38,9 +36,6 @@ type RepuestoItem = {
 };
 
 
-// =====================
-// MOCK DATA (reemplaza por tu API)
-// =====================
 const TRACTORES: TractorItem[] = [
   {
     id: 1,
@@ -130,9 +125,7 @@ const REPUESTOS: RepuestoItem[] = [
     compatibilidad: ["Serie T120"],
   },
 ];
-/* =========================
-   Helpers UI
-========================= */
+
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -226,9 +219,7 @@ function GradientButton({
   return <button className={`${base} ${className}`}>{children}</button>;
 }
 
-/* =========================
-   Tarjetas
-========================= */
+
 function ProductCard({ t }: { t: TractorItem }) {
   return (
     <CardGlow>
@@ -337,7 +328,6 @@ export default function HomeModules(): JSX.Element {
 
   return (
     <main className="bg-white">
-      {/* 1) Atajos / Categorías */}
       <Section>
         <motion.div {...fadeUp} className="mb-4 flex items-center gap-3">
           <span className="text-sm text-orange-600">
@@ -358,7 +348,7 @@ export default function HomeModules(): JSX.Element {
           {...fadeUp}
           className="grid grid-cols-1 gap-4 sm:grid-cols-3"
         >
-          {/* Tractores */}
+      
           <a
             href="/productos"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
@@ -380,7 +370,6 @@ export default function HomeModules(): JSX.Element {
             <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
           </a>
 
-          {/* Repuestos */}
           <a
             href="/productos"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
@@ -400,7 +389,6 @@ export default function HomeModules(): JSX.Element {
             <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
           </a>
 
-          {/* Servicio técnico */}
           <a
             href="/servicios"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
@@ -420,7 +408,6 @@ export default function HomeModules(): JSX.Element {
         </motion.div>
       </Section>
 
-      {/* 2) Tractores */}
       <Section>
         <div className="mb-6 flex items-end justify-between gap-4">
           <AccentTitle subtitle="Rendimiento, potencia y respaldo postventa.">
@@ -440,7 +427,6 @@ export default function HomeModules(): JSX.Element {
         </div>
       </Section>
 
-      {/* 3) Repuestos */}
       <Section>
         <div className="mb-6 flex items-end justify-between gap-4">
           <AccentTitle subtitle="Encuentra el repuesto compatible con tu modelo.">
@@ -454,7 +440,6 @@ export default function HomeModules(): JSX.Element {
           </a>
         </div>
 
-        {/* grid de repuestos */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtrados.map((p) => (
             <motion.div key={p.id} {...fadeUp}>
@@ -469,7 +454,6 @@ export default function HomeModules(): JSX.Element {
         </div>
       </Section>
 
-      {/* 4) Servicio técnico nacional */}
       <Section>
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
           <div>

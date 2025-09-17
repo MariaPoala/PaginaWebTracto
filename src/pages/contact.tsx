@@ -12,9 +12,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-/* =========================
-   Helpers
-========================= */
+
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -61,21 +59,18 @@ function InfoRow({ icon: Icon, label, value, href }: { icon: any; label: string;
   return content;
 }
 
-/* =========================
-   Página de Contacto
-========================= */
+
 export default function Contacto(): JSX.Element {
-  // Cambia estos valores por los reales de tu empresa
   const direccion = "Av. Ejemplo 123, Lima, Perú";
   const telefono = "+51 999 999 999";
   const email = "ventas@tutractor.pe";
 
-  // Mapa dinámico por dirección (sin API key)
+
   const mapsQuery = useMemo(() => encodeURIComponent(direccion), [direccion]);
   const mapsEmbedSrc = `https://www.google.com/maps?q=${mapsQuery}&output=embed`;
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
-  // Form state (solo demo en cliente)
+
   const [form, setForm] = useState({
     nombre: "",
     empresa: "",
@@ -102,7 +97,6 @@ export default function Contacto(): JSX.Element {
     e.preventDefault();
     if (!canSubmit) return;
     setSending(true);
-    // Aquí integra tu backend o un servicio como Formspree/Notify/Google Apps Script
     await new Promise((r) => setTimeout(r, 1000));
     setSending(false);
     setSent(true);
@@ -117,7 +111,7 @@ export default function Contacto(): JSX.Element {
 
   return (
     <main className="bg-white">
-      {/* Hero */}
+
       <Section>
         <div className="grid grid-cols-1 items-center gap-8 ">
           <div>
@@ -148,12 +142,11 @@ export default function Contacto(): JSX.Element {
             </div>
           </div>
 
-          {/* Mapa */}
+
           
         </div>
       </Section>
 
-      {/* Mapa ancho (opcional, a pantalla casi completa) */}
       <Section className="pt-0">
         <div className="overflow-hidden rounded-2xl border border-orange-100">
           <iframe
@@ -173,10 +166,3 @@ export default function Contacto(): JSX.Element {
   );
 }
 
-/* =========================
-   Nota: 
-   Si prefieres usar la API de Google Maps con marcadores personalizados, puedes integrar @react-google-maps/api.
-   1) npm i @react-google-maps/api
-   2) Crea una API Key y habilita Maps JavaScript API.
-   3) Reemplaza el iframe por <GoogleMap> y <Marker>. Mantener iframe es lo más simple (sin key).
-========================= */
