@@ -258,7 +258,7 @@ function ProductCard({ t }: { t: TractorItem }) {
           </ul>
 
           <div className="flex items-center justify-between">          
-            <GradientButton href={"https://wa.me/51987654321?text=Hola,%20quiero%20información%20sobre%20el:%20"+ t.nombre}>
+            <GradientButton href={"https://wa.me/51901775799?text=Hola,%20quiero%20información%20sobre%20el:%20"+ t.nombre}>
               Cotizar <ArrowRight className="h-4 w-4" />
             </GradientButton>
           </div>
@@ -291,7 +291,7 @@ function PartCard({ p }: { p: RepuestoItem }) {
 
         <div className="mt-4 flex items-center justify-between">
           <a
-            href={"https://wa.me/51987654321?text=Hola,%20quiero%20información%20sobre%20el:%20"+ p.nombre}
+            href={"https://wa.me/51901775799?text=Hola,%20quiero%20información%20sobre%20el:%20"+ p.nombre}
             className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-3 py-1.5 text-sm font-medium text-orange-700 transition hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
           >
             Cotizar <ArrowRight className="h-4 w-4" />
@@ -516,13 +516,13 @@ export default function HomeModules(): JSX.Element {
                 Solicitar atención <ArrowRight className="h-4 w-4" />
               </GradientButton>
               <a
-                href="https://wa.me/51987654321?text=Hola,%20quiero%20realizar%20mantenimiento%20"
+                href="https://wa.me/51901775799?text=Hola,%20quiero%20realizar%20mantenimiento%20"
                 className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
               >
                 WhatsApp técnico
               </a>
                <a
-                href="https://wa.me/51987654321?text=Hola,%20quiero%20realizar%20mantenimiento%20"
+                href="https://wa.me/51901775799?text=Hola,%20quiero%20realizar%20mantenimiento%20"
                 className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
               >
                 WhatsApp técnico
