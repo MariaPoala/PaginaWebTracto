@@ -173,12 +173,9 @@ export default function Nosotros(): JSX.Element {
                         </motion.p>
 
                         <motion.div {...fadeUp} className="mt-6 flex flex-wrap gap-3">
-                            <GradientButton href="#contacto">
+                            <GradientButton href="tel:+51981830008">
                                 Contáctanos <PhoneCall className="h-4 w-4" />
                             </GradientButton>
-                            <a href="#historia" className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-50">
-                                Nuestra historia <ArrowRight className="h-4 w-4" />
-                            </a>
                         </motion.div>
                     </div>
 
@@ -228,8 +225,8 @@ export default function Nosotros(): JSX.Element {
                             <p className="mt-1 text-slate-700">Conversemos sobre tus necesidades de maquinaria, repuestos o soporte técnico.</p>
                         </div>
                         <div className="flex flex-wrap items-center justify-start gap-3 md:justify-end">
-                            <GradientButton href="#contacto">Agendar una llamada <ArrowRight className="h-4 w-4" /></GradientButton>
-                            <a href="https://wa.me/51999999999" className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50">
+                            <GradientButton href="#contacto">Escribenos ya <ArrowRight className="h-4 w-4" /></GradientButton>
+                            <a href="https://wa.me/51981830008" className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50">
                                 WhatsApp <PhoneCall className="h-4 w-4" />
                             </a>
                         </div>

@@ -150,13 +150,13 @@ export default function Servicios() {
             </motion.p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="/solicitar-servicio"
+                href="#docs"
                 className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-white shadow-sm transition hover:from-red-700 hover:to-orange-600"
               >
                 Solicitar servicio <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/51999999999"
+                href="https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20sus%20servicios"
                 className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-orange-700 transition hover:bg-orange-50"
               >
                 WhatsApp técnico <MessageCircle className="h-4 w-4" />
@@ -287,10 +287,10 @@ export default function Servicios() {
           <h3 className="text-xl font-black text-red-800">¿Necesitas servicio técnico ahora?</h3>
           <p className="mt-1 text-slate-700">Cuéntanos tu caso y un asesor te contactará de inmediato.</p>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-            <a href="/solicitar-servicio" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-white shadow-sm transition hover:from-red-700 hover:to-orange-600">
+            <a href="#docs" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-white shadow-sm transition hover:from-red-700 hover:to-orange-600">
               Solicitar servicio <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="tel:+51999999999" className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-orange-700 transition hover:bg-orange-50">
+            <a href="tel:+51981830008" className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-orange-700 transition hover:bg-orange-50">
               <Phone className="h-4 w-4" /> Llamar ahora
             </a>
           </div>

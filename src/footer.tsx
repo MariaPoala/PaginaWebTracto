@@ -41,26 +41,26 @@ const DEFAULT_GROUPS: LinkGroup[] = [
   {
     title: "Productos",
     links: [
-      { label: "Venta de tractores", href: "#features" },
-      { label: "Repuestos", href: "#pricing" },
-      { label: "Servicios", href: "#integrations" }
+      { label: "Venta de tractores", href: "/productos" },
+      { label: "Repuestos", href: "/productos" },
+      { label: "Servicios", href: "/servicios" }
     ],
   },
   {
     title: "Enlaces",
     links: [
-      { label: "Inicio", href: "#about" },
-      { label: "Nosotros", href: "#careers" },
-      { label: "Contacto", href: "#blog" }
+      { label: "Inicio", href: "/" },
+      { label: "Nosotros", href: "/nosotros" },
+      { label: "Contacto", href: "/contact" }
     ],
   },
   {
     title: "Contacto",
     links: [
       { label: "Dirección: tractro calle principal s/n", href: "#docs" },
-      { label: "Teléfono 1: +51 987456321", href: "#guides" },
-      { label: "Teléfono 2: +51 987456321", href: "#guides" },
-      { label: "Correo: tractrosac@gmail.com", href: "#api" }
+      { label: "Teléfono 1: +51 987456321", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
+      { label: "Teléfono 2: +51 987456321", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
+      { label: "Correo: tractrosac@gmail.com", href: "mailto:tractrosac@gmail.com?subject=Consulta&body=Hola,%20quisiera%20más%20información." }
     ],
   }
 ];

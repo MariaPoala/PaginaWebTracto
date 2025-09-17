@@ -62,7 +62,7 @@ function InfoRow({ icon: Icon, label, value, href }: { icon: any; label: string;
 
 export default function Contacto(): JSX.Element {
   const direccion = "Av. Ejemplo 123, Lima, Perú";
-  const telefono = "+51 999 999 999";
+  const telefono = "+51981830008";
   const email = "ventas@tutractor.pe";
 
 
@@ -71,43 +71,43 @@ export default function Contacto(): JSX.Element {
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`;
 
 
-  const [form, setForm] = useState({
-    nombre: "",
-    empresa: "",
-    telefono: "",
-    email: "",
-    asunto: "Ventas de tractores",
-    mensaje: "",
-    acepta: false,
-  });
+  // const [form, setForm] = useState({
+  //   nombre: "",
+  //   empresa: "",
+  //   telefono: "",
+  //   email: "",
+  //   asunto: "Ventas de tractores",
+  //   mensaje: "",
+  //   acepta: false,
+  // });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const canSubmit =
-    form.nombre.trim().length > 1 &&
-    /.+@.+\..+/.test(form.email) &&
-    form.mensaje.trim().length >= 10 &&
-    form.acepta;
+  // const canSubmit =
+  //   form.nombre.trim().length > 1 &&
+  //   /.+@.+\..+/.test(form.email) &&
+  //   form.mensaje.trim().length >= 10 &&
+  //   form.acepta;
 
-  function onChange<K extends keyof typeof form>(key: K, val: (typeof form)[K]) {
-    setForm((f) => ({ ...f, [key]: val }));
-  }
+  // function onChange<K extends keyof typeof form>(key: K, val: (typeof form)[K]) {
+  //   setForm((f) => ({ ...f, [key]: val }));
+  // }
 
-  async function onSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!canSubmit) return;
-    setSending(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setSending(false);
-    setSent(true);
-  }
+  // async function onSubmit(e: FormEvent) {
+  //   e.preventDefault();
+  //   if (!canSubmit) return;
+  //   setSending(true);
+  //   await new Promise((r) => setTimeout(r, 1000));
+  //   setSending(false);
+  //   setSent(true);
+  // }
 
-  const whatsappHref = useMemo(() => {
-    const text = encodeURIComponent(
-      `Hola, quiero más información.\n\nNombre: ${form.nombre}\nEmpresa: ${form.empresa}\nTeléfono: ${form.telefono}\nEmail: ${form.email}\nAsunto: ${form.asunto}\nMensaje: ${form.mensaje}`
-    );
-    return `https://wa.me/51999999999?text=${text}`; // cambia al número real
-  }, [form]);
+  // const whatsappHref = useMemo(() => {
+  //   const text = encodeURIComponent(
+  //     `Hola, quiero más información.\n\nNombre: ${form.nombre}\nEmpresa: ${form.empresa}\nTeléfono: ${form.telefono}\nEmail: ${form.email}\nAsunto: ${form.asunto}\nMensaje: ${form.mensaje}`
+  //   );
+  //   return `https://wa.me/51999999999?text=${text}`; // cambia al número real
+  // }, [form]);
 
   return (
     <main className="bg-white">
@@ -133,7 +133,7 @@ export default function Contacto(): JSX.Element {
             </motion.div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <GradientButton href={whatsappHref}>
+              <GradientButton href="https://wa.me/51981830008?text=Hola,%20quiero%20información">
                 WhatsApp inmediato <MessageCircle className="h-4 w-4" />
               </GradientButton>
               <a href={mapsLink} className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-50">

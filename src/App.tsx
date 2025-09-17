@@ -7,6 +7,7 @@ import Nosotros from "./pages/nosotros.tsx";
 import Productos from "./pages/productos.tsx";
 import Servicios from "./pages/servicios.tsx";
 import ContactInfoPanel from "./pages/contact.tsx";
+import WhatsAppButton from './botonwat.tsx'
 
 
 function ShellLayout() {
@@ -77,6 +78,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ShellLayout />
+      <WhatsAppButton></WhatsAppButton>
     </BrowserRouter>
   );
 }

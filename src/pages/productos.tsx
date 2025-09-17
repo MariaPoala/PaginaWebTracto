@@ -54,7 +54,7 @@ const DATA: Producto[] = [
     tipo: "tractor",
     nombre: "Tractor Serie X45",
     imagen:
-      "https://images.unsplash.com/photo-1568890350424-6f14a07b56d3?q=80&w=1600&auto=format&fit=crop",
+      "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
     marca: "Agromax",
     nuevo: true,
     hp: 90,
@@ -66,7 +66,7 @@ const DATA: Producto[] = [
     tipo: "tractor",
     nombre: "Tractor Serie M70",
     imagen:
-      "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=1600&auto=format&fit=crop",
+      "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
     marca: "Farmtech",
     hp: 110,
     traccion: "4x4",
@@ -77,7 +77,7 @@ const DATA: Producto[] = [
     tipo: "tractor",
     nombre: "Tractor Serie R20",
     imagen:
-      "https://images.unsplash.com/photo-1627586696628-1d7f6da1d9a9?q=80&w=1600&auto=format&fit=crop",
+      "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
     marca: "Terra",
     hp: 75,
     traccion: "4x2",
@@ -88,7 +88,7 @@ const DATA: Producto[] = [
     tipo: "tractor",
     nombre: "Tractor Serie T120",
     imagen:
-      "https://images.unsplash.com/photo-1592982537447-334c57d5dc70?q=80&w=1600&auto=format&fit=crop",
+      "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
     marca: "Agromax",
     nuevo: true,
     hp: 150,
@@ -101,7 +101,7 @@ const DATA: Producto[] = [
     tipo: "repuesto",
     nombre: "Filtro de aceite HeavyDuty",
     imagen:
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1600&auto=format&fit=crop",
+      "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
     marca: "Hydro",
     codigo: "FD-8921",
     compatibilidad: ["Serie X45", "Serie R20"],
@@ -112,7 +112,7 @@ const DATA: Producto[] = [
     tipo: "repuesto",
     nombre: "Bomba hidráulica 2200 PSI",
     imagen:
-      "https://images.unsplash.com/photo-1518306727298-4c12e94e28a3?q=80&w=1600&auto=format&fit=crop",
+      "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
     marca: "Hydro",
     codigo: "BH-2200",
     compatibilidad: ["Serie M70", "Serie T120"],
@@ -123,7 +123,7 @@ const DATA: Producto[] = [
     tipo: "repuesto",
     nombre: "Correa dentada premium",
     imagen:
-      "https://images.unsplash.com/photo-1626760078989-9cbf25eeec78?q=80&w=1600&auto=format&fit=crop",
+      "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
     marca: "Power",
     codigo: "CD-5567",
     compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
@@ -134,7 +134,7 @@ const DATA: Producto[] = [
     tipo: "repuesto",
     nombre: "Filtro de aire ciclónico",
     imagen:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop",
+      "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
     marca: "Power",
     codigo: "FA-7710",
     compatibilidad: ["Serie T120"],
@@ -255,7 +255,7 @@ function TractorCard({ p, view }: { p: TractorItem; view: "grid" | "list" }) {
         </ul>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <a
-            href={`/cotizar?producto=${p.id}`}
+            href={"https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20"+ p.nombre}
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:from-red-700 hover:to-orange-600"
           >
             Cotizar <ArrowRight className="h-4 w-4" />
@@ -301,7 +301,7 @@ function RepuestoCard({ p, view }: { p: RepuestoItem; view: "grid" | "list" }) {
             <p className="text-xs uppercase text-slate-500">Precio</p>
           </div>
           <a
-            href={`/repuestos/${p.id}`}
+            href={"https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20"+ p.nombre}
             className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-50"
           >
             Ver repuesto <ArrowRight className="h-4 w-4" />
@@ -326,7 +326,6 @@ export default function ProductosPage(): JSX.Element {
   const [hpMax, setHpMax] = useState<number>(250);
   const [traccion, setTraccion] = useState<"4x4" | "4x2" | "">("");
   const [soloStock, setSoloStock] = useState<boolean>(false);
-  const [sort, setSort] = useState<"relevancia" | "precio_asc" | "precio_desc">("relevancia");
   const [view, setView] = useState<"grid" | "list">("grid");
 
 
@@ -357,7 +356,7 @@ export default function ProductosPage(): JSX.Element {
 
    
     return arr;
-  }, [q, tipo, marca, precioMin, precioMax, hpMin, hpMax, traccion, soloStock, sort]);
+  }, [q, tipo, marca, precioMin, precioMax, hpMin, hpMax, traccion, soloStock]);
 
 
   const [page, setPage] = useState<number>(1);
@@ -380,18 +379,7 @@ export default function ProductosPage(): JSX.Element {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="relative">
-              <select
-                value={sort}
-                onChange={(e) => setSort(e.target.value as any)}
-                className="appearance-none rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 focus:border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600/10"
-              >
-                <option value="relevancia">Relevancia</option>
-                <option value="precio_asc">Precio: menor a mayor</option>
-                <option value="precio_desc">Precio: mayor a menor</option>
-              </select>
-              <ArrowUpDown className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-            </div>
+            
             <div className="inline-flex items-center gap-1">
               <button
                 onClick={() => setView("grid")}

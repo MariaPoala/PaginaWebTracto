@@ -29,7 +29,7 @@ export default function Header({
   brand = DEFAULT_BRAND,
   nav = DEFAULT_NAV,
   ctaLabel = "Cotizar",
-  ctaHref = "/contact",
+  ctaHref = "https://wa.me/51981830008?text=Hola,%20quiero%20realizar%20una%20cotización%20",
 }: {
   brand?: Brand;
   nav?: NavItem[];
