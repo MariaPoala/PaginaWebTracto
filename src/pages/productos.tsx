@@ -24,7 +24,6 @@ export type ProductoBase = {
   tipo: TipoProducto;
   nombre: string;
   imagen: string;
-  precio: number; // PEN
   marca?: string;
   nuevo?: boolean;
 };
@@ -56,7 +55,6 @@ const DATA: Producto[] = [
     nombre: "Tractor Serie X45",
     imagen:
       "https://images.unsplash.com/photo-1568890350424-6f14a07b56d3?q=80&w=1600&auto=format&fit=crop",
-    precio: 79990,
     marca: "Agromax",
     nuevo: true,
     hp: 90,
@@ -69,7 +67,6 @@ const DATA: Producto[] = [
     nombre: "Tractor Serie M70",
     imagen:
       "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=1600&auto=format&fit=crop",
-    precio: 95990,
     marca: "Farmtech",
     hp: 110,
     traccion: "4x4",
@@ -81,7 +78,6 @@ const DATA: Producto[] = [
     nombre: "Tractor Serie R20",
     imagen:
       "https://images.unsplash.com/photo-1627586696628-1d7f6da1d9a9?q=80&w=1600&auto=format&fit=crop",
-    precio: 58990,
     marca: "Terra",
     hp: 75,
     traccion: "4x2",
@@ -93,7 +89,6 @@ const DATA: Producto[] = [
     nombre: "Tractor Serie T120",
     imagen:
       "https://images.unsplash.com/photo-1592982537447-334c57d5dc70?q=80&w=1600&auto=format&fit=crop",
-    precio: 124990,
     marca: "Agromax",
     nuevo: true,
     hp: 150,
@@ -107,7 +102,6 @@ const DATA: Producto[] = [
     nombre: "Filtro de aceite HeavyDuty",
     imagen:
       "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1600&auto=format&fit=crop",
-    precio: 190,
     marca: "Hydro",
     codigo: "FD-8921",
     compatibilidad: ["Serie X45", "Serie R20"],
@@ -119,7 +113,6 @@ const DATA: Producto[] = [
     nombre: "Bomba hidráulica 2200 PSI",
     imagen:
       "https://images.unsplash.com/photo-1518306727298-4c12e94e28a3?q=80&w=1600&auto=format&fit=crop",
-    precio: 1450,
     marca: "Hydro",
     codigo: "BH-2200",
     compatibilidad: ["Serie M70", "Serie T120"],
@@ -131,7 +124,6 @@ const DATA: Producto[] = [
     nombre: "Correa dentada premium",
     imagen:
       "https://images.unsplash.com/photo-1626760078989-9cbf25eeec78?q=80&w=1600&auto=format&fit=crop",
-    precio: 95,
     marca: "Power",
     codigo: "CD-5567",
     compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
@@ -143,7 +135,6 @@ const DATA: Producto[] = [
     nombre: "Filtro de aire ciclónico",
     imagen:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop",
-    precio: 220,
     marca: "Power",
     codigo: "FA-7710",
     compatibilidad: ["Serie T120"],
@@ -265,7 +256,6 @@ function TractorCard({ p, view }: { p: TractorItem; view: "grid" | "list" }) {
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs uppercase text-slate-500">Desde</p>
-            <p className="text-lg font-extrabold text-red-700">{PEN(p.precio)}</p>
           </div>
           <a
             href={`/cotizar?producto=${p.id}`}
@@ -312,7 +302,6 @@ function RepuestoCard({ p, view }: { p: RepuestoItem; view: "grid" | "list" }) {
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs uppercase text-slate-500">Precio</p>
-            <p className="text-lg font-extrabold text-red-700">{PEN(p.precio)}</p>
           </div>
           <a
             href={`/repuestos/${p.id}`}
@@ -462,7 +451,6 @@ export default function ProductosPage(): JSX.Element {
     let arr = DATA.filter((p) => {
       if (tipo !== "todos" && p.tipo !== tipo) return false;
       if (marca && p.marca !== marca) return false;
-      if (p.precio < precioMin || p.precio > precioMax) return false;
       const t = `${p.nombre} ${p.marca ?? ""}`.toLowerCase();
       const matchText = text === "" || t.includes(text);
       if (!matchText) return false;
@@ -477,9 +465,7 @@ export default function ProductosPage(): JSX.Element {
       return true;
     });
 
-    if (sort === "precio_asc") arr = arr.sort((a, b) => a.precio - b.precio);
-    if (sort === "precio_desc") arr = arr.sort((a, b) => b.precio - a.precio);
-
+   
     return arr;
   }, [q, tipo, marca, precioMin, precioMax, hpMin, hpMax, traccion, soloStock, sort]);
 
