@@ -254,9 +254,6 @@ function TractorCard({ p, view }: { p: TractorItem; view: "grid" | "list" }) {
           <li className="inline-flex items-center gap-1"><ShieldCheck className="h-4 w-4 text-orange-600" /> {p.transmision}</li>
         </ul>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase text-slate-500">Desde</p>
-          </div>
           <a
             href={`/cotizar?producto=${p.id}`}
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-sm font-medium text-white transition hover:from-red-700 hover:to-orange-600"
@@ -316,115 +313,8 @@ function RepuestoCard({ p, view }: { p: RepuestoItem; view: "grid" | "list" }) {
   );
 }
 
-/* =====================================
-   Panel de Filtros (siempre visible)
-   - En móvil: tarjeta completa por encima de resultados
-   - En desktop: columna sticky a la izquierda
-===================================== */
-function FiltersPanel({
-  tipo,
-  setTipo,
-  marca,
-  setMarca,
-  precioMin,
-  setPrecioMin,
-  precioMax,
-  setPrecioMax,
-  hpMin,
-  setHpMin,
-  hpMax,
-  setHpMax,
-  traccion,
-  setTraccion,
-  soloStock,
-  setSoloStock,
-  marcasDisponibles,
-}: {
-  tipo: TipoProducto | "todos";
-  setTipo: (t: TipoProducto | "todos") => void;
-  marca: string;
-  setMarca: (m: string) => void;
-  precioMin: number;
-  setPrecioMin: (n: number) => void;
-  precioMax: number;
-  setPrecioMax: (n: number) => void;
-  hpMin: number;
-  setHpMin: (n: number) => void;
-  hpMax: number;
-  setHpMax: (n: number) => void;
-  traccion: "4x4" | "4x2" | "";
-  setTraccion: (t: "4x4" | "4x2" | "") => void;
-  soloStock: boolean;
-  setSoloStock: (v: boolean) => void;
-  marcasDisponibles: string[];
-}) {
-  return (
-    <aside className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-24">
-      <h3 className="text-lg font-bold text-slate-900">Filtros</h3>
-
-      {/* Tipo */}
-      <div className="mt-4">
-        <p className="mb-2 text-xs font-medium text-slate-600">Tipo</p>
-        <div className="flex flex-wrap gap-2">
-          <Chip active={tipo === "todos"} onClick={() => setTipo("todos")} icon={Grid2X2}>Todos</Chip>
-          <Chip active={tipo === "tractor"} onClick={() => setTipo("tractor")} icon={Tractor}>Tractores</Chip>
-          <Chip active={tipo === "repuesto"} onClick={() => setTipo("repuesto")} icon={Wrench}>Repuestos</Chip>
-        </div>
-      </div>
-
-      {/* Marca */}
-      <div className="mt-5">
-        <label className="mb-2 block text-xs font-medium text-slate-600">Marca</label>
-        <select
-          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 focus:border-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-600/10"
-          value={marca}
-          onChange={(e) => setMarca(e.target.value)}
-        >
-          <option value="">Todas</option>
-          {marcasDisponibles.map((m) => (
-            <option key={m} value={m}>
-              {m}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Precio */}
-      <div className="mt-5">
-        <p className="mb-2 text-xs font-medium text-slate-600">Precio</p>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          <Range label="Mín." min={0} max={150000} step={500} value={precioMin} onChange={setPrecioMin} />
-          <Range label="Máx." min={0} max={150000} step={500} value={precioMax} onChange={setPrecioMax} />
-        </div>
-        <p className="mt-1 text-xs text-slate-500">
-          {PEN(precioMin)} - {PEN(precioMax)}
-        </p>
-      </div>
-
-      {/* Solo tractores: HP / Tracción */}
-      <div className="mt-5">
-        <p className="mb-2 text-xs font-medium text-slate-600">Potencia (HP) — solo tractores</p>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          <Range label="Mín." min={0} max={250} step={5} value={hpMin} onChange={setHpMin} />
-          <Range label="Máx." min={0} max={250} step={5} value={hpMax} onChange={setHpMax} />
-        </div>
-        <p className="mt-1 text-xs text-slate-500">{hpMin} - {hpMax} HP</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <Chip active={traccion === "4x4"} onClick={() => setTraccion(traccion === "4x4" ? "" : "4x4")} icon={Truck}>4x4</Chip>
-          <Chip active={traccion === "4x2"} onClick={() => setTraccion(traccion === "4x2" ? "" : "4x2")} icon={Truck}>4x2</Chip>
-        </div>
-      </div>
 
 
-      <div className="mt-5">
-        <label className="inline-flex cursor-pointer items-center gap-2 text-sm text-slate-700">
-          <input type="checkbox" className="h-4 w-4 accent-orange-600" checked={soloStock} onChange={(e) => setSoloStock(e.target.checked)} />
-          Solo repuestos con stock
-        </label>
-      </div>
-    </aside>
-  );
-}
 
 export default function ProductosPage(): JSX.Element {
   const [q, setQ] = useState<string>("");
@@ -544,27 +434,8 @@ export default function ProductosPage(): JSX.Element {
       </Section>
 
       <Section className="pt-0">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,320px),1fr]">
-          <FiltersPanel
-            tipo={tipo}
-            setTipo={setTipo}
-            marca={marca}
-            setMarca={setMarca}
-            precioMin={precioMin}
-            setPrecioMin={setPrecioMin}
-            precioMax={precioMax}
-            setPrecioMax={setPrecioMax}
-            hpMin={hpMin}
-            setHpMin={setHpMin}
-            hpMax={hpMax}
-            setHpMax={setHpMax}
-            traccion={traccion}
-            setTraccion={setTraccion}
-            soloStock={soloStock}
-            setSoloStock={setSoloStock}
-            marcasDisponibles={marcasDisponibles}
-          />
-
+        <div className="grid grid-cols-1 gap-3 ,1fr]">
+        
           <div>
 
             <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-slate-600">

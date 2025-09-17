@@ -146,7 +146,7 @@ export default function Servicios() {
               Mantenimiento y soporte para tu maquinaria, en todo el Perú
             </motion.h1>
             <motion.p {...fadeUp} className="mt-3 text-slate-700">
-              Diagnóstico, correctivo y preventivo para maximizar tu disponibilidad. Técnicos certificados y repuestos garantizados.
+              Ofrecemos servicios de diagnóstico, mantenimiento correctivo y preventivo diseñados para maximizar la disponibilidad de tu maquinaria agrícola e industrial. Nuestro equipo de técnicos certificados trabaja con altos estándares de calidad para garantizar soluciones rápidas y efectivas en cada intervención. Además, contamos con un amplio stock de repuestos originales y alternativos, asegurando no solo la continuidad de tus operaciones, sino también la durabilidad y el rendimiento óptimo de tus equipos. Con nosotros, tu inversión está protegida y tu productividad siempre respaldada.
             </motion.p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -162,20 +162,12 @@ export default function Servicios() {
                 WhatsApp técnico <MessageCircle className="h-4 w-4" />
               </a>
             </div>
-
-            {/* KPIs */}
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <Stat icon={Clock} label="Tiempo de respuesta" value="≤ 48h" />
-              <Stat icon={Truck} label="Cobertura" value="24 regiones" />
-              <Stat icon={ShieldCheck} label="Garantía" value="Hasta 12 meses" />
-              <Stat icon={Wrench} label="Servicios/mes" value="+300" />
-            </div>
           </div>
 
           <motion.div {...fadeUp} className="relative order-first lg:order-none">
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-orange-100 bg-slate-100 shadow-sm">
               <img
-                src="https://images.unsplash.com/photo-1592982537447-334c57d5dc70?q=80&w=1600&auto=format&fit=crop"
+                src="https://images.milanuncios.com/api/v1/ma-ad-media-pro/images/99001d81-153c-49ab-8dbe-993a29999ac1?rule=hw396_70"
                 alt="Técnicos dando mantenimiento a tractor"
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -236,32 +228,6 @@ export default function Servicios() {
         </div>
       </Section>
 
-      {/* PLANES */}
-      <Section>
-        <div className="mb-6">
-          <h2 className="text-2xl font-black text-red-800 sm:text-3xl">Planes de servicio</h2>
-          <p className="text-slate-600">Elige el nivel de cobertura que se ajuste a tu operación.</p>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <PlanCard
-            name="Básico"
-            price="S/ 0 — por visita"
-            features={["Diagnóstico en sitio", "Reporte técnico", "Cotización de reparación"]}
-          />
-          <PlanCard
-            name="Plus"
-            price="S/ 1,200 — mensual"
-            features={["2 visitas programadas", "Soporte telefónico 24/7", "Descuento 10% en repuestos"]}
-            highlight
-          />
-          <PlanCard
-            name="Premium"
-            price="A medida"
-            features={["SLA ≤ 24h", "+4 visitas/mes", "Gestión de repuestos consignados"]}
-          />
-        </div>
-      </Section>
-
       {/* PROCESO */}
       <Section>
         <div className="mb-6">
@@ -293,7 +259,7 @@ export default function Servicios() {
           <div className="order-2 lg:order-none">
             <h2 className="text-2xl font-black text-red-800 sm:text-3xl">Cobertura nacional y SLA</h2>
             <p className="mt-2 text-slate-700">
-              Atendemos en las 24 regiones del Perú con base en Lima. Definimos tiempos de respuesta (SLA) por contrato y mantenemos repuestos críticos en stock.
+              Atendemos en las 24 regiones del Perú con base en Huancayo. Definimos tiempos de respuesta (SLA) por contrato y mantenemos repuestos críticos en stock.
             </p>
             <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <li className="rounded-2xl border border-slate-200 bg-white p-4 text-slate-800 shadow-sm"><Clock className="mr-2 inline h-5 w-5 text-orange-600"/> Respuesta estándar: ≤ 48h</li>
@@ -305,26 +271,13 @@ export default function Servicios() {
           <div className="order-1 lg:order-none">
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-orange-100 bg-slate-100 shadow-sm">
               <img
-                src="https://images.unsplash.com/photo-1502920917128-1aa500764cec?q=80&w=1600&auto=format&fit=crop"
+                src="https://www.tractoreslorca.com/wp-content/uploads/2014/03/servicio-tecnico-taller.jpg"
                 alt="Mapa y cobertura de servicio"
                 className="h-full w-full object-cover"
                 loading="lazy"
               />
             </div>
           </div>
-        </div>
-      </Section>
-
-      {/* FAQ */}
-      <Section>
-        <div className="mb-6">
-          <h2 className="text-2xl font-black text-red-800 sm:text-3xl">Preguntas frecuentes</h2>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <FAQItem q="¿Atienden emergencias fuera de horario?" a="Sí, para clientes con plan Plus/Premium contamos con atención 24/7 bajo tarifa de emergencia." />
-          <FAQItem q="¿Trabajan con todas las marcas?" a="Sí, realizamos mantenimiento multimarca; consúltanos por compatibilidades específicas." />
-          <FAQItem q="¿Cómo cotizan un servicio?" a="Luego del diagnóstico enviamos una propuesta detallada con tiempos, repuestos y garantía." />
-          <FAQItem q="¿Pueden capacitar a mis operadores?" a="Sí, incluimos sesiones de capacitación en puesta en marcha y como servicio independiente." />
         </div>
       </Section>
 

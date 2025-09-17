@@ -176,7 +176,7 @@ export default function InteractiveFooter({
               )}
               <span className="text-lg font-semibold tracking-tight">{brand.name}</span>
             </div>
-            {brand.tagline && <p className="mt-3 max-w-md text-sm text-neutral-400">{brand.tagline}</p>}
+            {brand.tagline && <p className="mt-3 max-w-md text-sm text-neutral-200">{brand.tagline}</p>}
 
             {/* Newsletter */}
            
@@ -268,7 +268,7 @@ export default function InteractiveFooter({
         </motion.div>
 
         {/* Barra inferior */}
-        <div className="mt-8 flex flex-row items-center justify-center gap-2 border-t border-white/10 pt-4 text-sm text-neutral-400 md:flex-row">
+        <div className="mt-8 flex flex-row items-center justify-center gap-2 border-t border-white/10 pt-4 text-sm text-neutral-200 md:flex-row">
           <p>
             © {year} {brand.name}. Todos los derechos reservados.
           </p>
