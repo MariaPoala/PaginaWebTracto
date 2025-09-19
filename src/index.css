@@ -22,3 +22,18 @@ margin-top: 12px;
 margin-bottom: 8px;
 }
 
+.botonpersonalizado{
+  background-color: rgb(115, 255, 0);
+}
+
+.colorheader{
+  background-color: #e7f7ed;
+  text-decoration: #076634;
+  text-decoration-color: #076634;
+
+}
+
+.colortexto{
+  text-decoration-color: #076634;
+}
+

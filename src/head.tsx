@@ -13,7 +13,7 @@ type Brand = { name: string; logo?: string; href?: string };
 
 const DEFAULT_BRAND: Brand = {
   name: "Tractro SAC",
-  logo: "https://dummyimage.com/48x48/f97316/ffffff.png&text=T",
+  logo: "./logo.png",
   href: "/",
 };
 
