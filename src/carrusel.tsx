@@ -25,11 +25,11 @@ const DEFAULT_SLIDES: Slide[] = [
   {
     id: "1",
     image:
-      "https://cabinasglobal.com/sites/default/files/2024-07/new-tractors.jpg",
-    title: "Venta de tractores",
+      "https://www.deere.com/assets/images/region-3/products/tillage-equipment/disks/arado_3745_estudio_large_1b5ab86460ef31a698e8e93006198b3d250b477b.jpg",
+    title: "Venta de Arados",
     subtitle:
-      "Tractores modernos y confiables para potenciar el trabajo en el campo y la industria.",
-    cta: { label: "Ver productos", href: "/productos" },
+      "herramientas agrícolas que labran y airean el suelo para facilitar la siembra y el crecimiento de los cultivos.",
+    cta: { label: "Ver productos", href: "/arados" },
     align: "left",
   },
   {
@@ -39,7 +39,7 @@ const DEFAULT_SLIDES: Slide[] = [
     title: "Repuestos y partes",
     subtitle:
       "Amplio stock de repuestos originales y accesorios para mantener tu maquinaria en óptimas condiciones.",
-    cta: { label: "Ver productos", href: "/productos" },
+    cta: { label: "Ver productos", href: "/repuestos" },
     align: "center",
   },
   {
