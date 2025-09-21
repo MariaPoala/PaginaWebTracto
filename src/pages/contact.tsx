@@ -80,9 +80,10 @@ function InfoRow({
 }
 
 export default function Contacto(): JSX.Element {
-  const direccion = "Av. Ejemplo 123, Lima, Perú";
+  const direccion = "Jr Atalaya 256 Tambo Huancayo, Huancayo, Peru";
   const telefono = "+51981830008";
-  const email = "ventas@tutractor.pe";
+  const email = "tractocentroperu@gmail.com";
+
 
   const mapsQuery = useMemo(() => encodeURIComponent(direccion), [direccion]);
   const mapsEmbedSrc = `https://www.google.com/maps?q=${mapsQuery}&output=embed`;

@@ -11,7 +11,7 @@ type LinkGroup = {
 interface InteractiveFooterProps {
   brand?: {
     name: string;
-    logo?: string; // URL opcional
+    logo?: "./logo.png"; // URL opcional
     tagline?: string;
   };
   groups?: LinkGroup[];
@@ -47,9 +47,9 @@ const DEFAULT_GROUPS: LinkGroup[] = [
     title: "Contacto",
     links: [
       { label: "Dirección: tractro calle principal s/n", href: "#docs" },
-      { label: "Teléfono 1: +51 987456321", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
-      { label: "Teléfono 2: +51 987456321", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
-      { label: "Correo: tractrosac@gmail.com", href: "mailto:tractrosac@gmail.com?subject=Consulta&body=Hola,%20quisiera%20más%20información." }
+      { label: "Teléfono 1: +51 981830008", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
+      { label: "Teléfono 2: +51 981830008", href: "https://wa.me/51981830008?text=Hola,%20quiero%20información" },
+      { label: "Correo: tractocentroperu@gmail.com", href: "tractocentroperu@gmail.com?subject=Consulta&body=Hola,%20quisiera%20más%20información." }
     ],
   }
 ];
@@ -81,7 +81,7 @@ const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
 };
 
 export default function InteractiveFooter({
-  brand = { name: "Tractro SAC", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
+  brand = { name: "Tracto Centro Peru ", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
   groups = DEFAULT_GROUPS,
   languages = ["ES", "EN", "PT"],
   className = "",
@@ -159,17 +159,13 @@ export default function InteractiveFooter({
           {/* Col brand + tagline */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-              {brand.logo ? (
+        
                 <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="h-8 w-8 rounded-lg object-cover ring-1 ring-emerald-700/40"
+                  src="./logo.png"
+                  alt="T"
+                  className="h-8 w-8  "
                 />
-              ) : (
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-200 text-emerald-900 ring-1 ring-emerald-700/40">
-                  <span className="text-sm font-bold">{brand.name[0]}</span>
-                </div>
-              )}
+             
               <span className="text-lg font-semibold tracking-tight text-emerald-50">
                 {brand.name}
               </span>

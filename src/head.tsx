@@ -12,7 +12,7 @@ type NavItem = { label: string; href?: string; children?: NavChild[] };
 type Brand = { name: string; logo?: string; href?: string };
 
 const DEFAULT_BRAND: Brand = {
-  name: "Tractro SAC",
+  name: "Tracto Centro Peru",
   logo: "./logo.png",
   href: "/",
 };
@@ -24,11 +24,12 @@ const DEFAULT_NAV: NavItem[] = [
   {
     label: "PRODUCTOS",
     children: [
-      { label: "Arados", href: "/arados", description: "Modelos 45–220 HP" },
-      { label: "Insumos de mantenimiento", href: "/insumos_mantenimiento", description: "Originales y alternativos" },
-      { label: "Repuestos", href: "/repuestos", description: "Modelos 45–220 HP" },
-      { label: "Rastras", href: "/rastras", description: "Originales y alternativos" },
-      { label: "Surcadoras", href: "/surcadoras", description: "Modelos 45–220 HP" }  
+      { label: "Arados", href: "/arados", description: "Preparación de suelos con máxima eficiencia" },
+      { label: "Insumos de mantenimiento", href: "/insumos", description: "Aceites, filtros y productos esenciales" },
+      { label: "Repuestos", href: "/repuestos", description: "Piezas originales y de alta durabilidad" },
+      { label: "Rastras", href: "/rastras", description: "Nivelación y refinado de terrenos agrícolas" },
+      { label: "Surcadoras", href: "/surcadoras", description: "Surcos precisos para una siembra uniforme" }
+
     ],
   },
   { label: "SERVICIOS", href: "/servicios" },
