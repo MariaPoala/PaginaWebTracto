@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homes from "./pages/home.tsx";
 import Nosotros from "./pages/nosotros.tsx";
 import Productos from "./pages/productos.tsx";
+import Arados from "./pages/arados.tsx";
+import Repuestos from "./pages/repuestos.tsx";
 import Servicios from "./pages/servicios.tsx";
 import ContactInfoPanel from "./pages/contact.tsx";
 import WhatsAppButton from './botonwat.tsx'
@@ -19,6 +21,8 @@ function ShellLayout() {
             <Route index element={<Home />} />
             <Route path="/nosotros" element={<Nosotro />} />
             <Route path="/productos" element={<Producto />} />
+            <Route path="/arados" element={<Arados />} />
+            <Route path="/repuestos" element={<Repuesto />} />
             <Route path="/servicios" element={<Servicio />} />
             <Route path="/contact" element={<Contacto />} />
             <Route path="*" element={<NotFound />} />
@@ -47,6 +51,20 @@ function Producto() {
   return (
     <section>
       <Productos />
+    </section>
+  );
+}
+function Arado() {
+  return (
+    <section>
+      <Arados />
+    </section>
+  );
+}
+function Repuesto() {
+  return (
+    <section>
+      <Repuestos />
     </section>
   );
 }

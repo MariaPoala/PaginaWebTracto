@@ -1,17 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// -------------------------------------------------------------
-// InteractiveFooter – React + TypeScript + TailwindCSS
-// Interacciones incluidas:
-// - Acordeones móviles por columna
-// - Suscripción a newsletter con validación y feedback
-// - Selector de idioma (solo UI)
-// - Botón de modo claro/oscuro con persistencia en localStorage
-// - Botón "volver arriba" que aparece al hacer scroll
-// - Microanimaciones con Framer Motion
-// -------------------------------------------------------------
-
 type FooterLink = { label: string; href: string };
 
 type LinkGroup = {
@@ -94,7 +83,6 @@ const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
 export default function InteractiveFooter({
   brand = { name: "Tractro SAC", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
   groups = DEFAULT_GROUPS,
-  
   languages = ["ES", "EN", "PT"],
   className = "",
 }: InteractiveFooterProps) {
@@ -146,15 +134,19 @@ export default function InteractiveFooter({
   return (
     <footer
       className={
-        "relative overflow-hidden border-t border-white/10 bg-brand-orange-700 text-neutral-200 dark:bg-brand-orange-700 " +
+        // Fondo verde oscuro + texto claro (accesible)
+        "relative overflow-hidden border-t border-emerald-800 bg-emerald-950 text-emerald-100 dark:bg-emerald-950 " +
         (className || "")
       }
       aria-label="Pie de página"
     >
-      {/* Deco superior */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 -top-24 h-44
-              bg-gradient-to-b from-amber-300/35 via-orange-200/20 to-transparent
-              blur-2xl" />
+      {/* Deco superior en verdes */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-24 h-44
+                   bg-gradient-to-b from-emerald-300/30 via-green-200/20 to-transparent
+                   blur-2xl"
+      />
 
       <div className="mx-auto max-w-7xl px-6 pb-6 pt-8 md:pb-4 md:pt-10">
         <motion.div
@@ -164,22 +156,29 @@ export default function InteractiveFooter({
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 gap-2 md:grid-cols-12"
         >
-          {/* Col brand + newsletter */}
+          {/* Col brand + tagline */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
               {brand.logo ? (
-                <img src={brand.logo} alt={brand.name} className="h-8 w-8 rounded-lg object-cover ring-1 ring-white/20" />
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="h-8 w-8 rounded-lg object-cover ring-1 ring-emerald-700/40"
+                />
               ) : (
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-white text-neutral-900 ring-1 ring-white/20">
+                <div className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-200 text-emerald-900 ring-1 ring-emerald-700/40">
                   <span className="text-sm font-bold">{brand.name[0]}</span>
                 </div>
               )}
-              <span className="text-lg font-semibold tracking-tight">{brand.name}</span>
+              <span className="text-lg font-semibold tracking-tight text-emerald-50">
+                {brand.name}
+              </span>
             </div>
-            {brand.tagline && <p className="mt-3 max-w-md text-sm text-neutral-200">{brand.tagline}</p>}
-
-            {/* Newsletter */}
-           
+            {brand.tagline && (
+              <p className="mt-3 max-w-md text-sm text-emerald-200/90">
+                {brand.tagline}
+              </p>
+            )}
 
             {/* Social */}
             <div className="mt-6 flex items-center gap-3">
@@ -192,10 +191,14 @@ export default function InteractiveFooter({
                 <a
                   key={s.name}
                   href={s.href}
-                  className="group rounded-xl border border-white/10 bg-white/5 p-2 ring-1 ring-white/10 transition hover:bg-white/10"
+                  className="group rounded-xl border border-emerald-800 bg-emerald-900/40 p-2 ring-1 ring-emerald-700/40 transition hover:bg-emerald-900/70"
                   aria-label={`Ir a ${s.name}`}
                 >
-                  <motion.span whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.96 }} className="block text-white/80 group-hover:text-white">
+                  <motion.span
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="block text-emerald-200/80 group-hover:text-emerald-100"
+                  >
                     <SocialIcon name={s.name} />
                   </motion.span>
                 </a>
@@ -205,9 +208,12 @@ export default function InteractiveFooter({
 
           {/* Col enlaces (acordeones en mobile) */}
           <div className="md:col-span-7">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3  ">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {groups.map((g, idx) => (
-                <div key={g.title} className="rounded-2xl border border-white/10 bg-white/5 p-4 ring-1 ring-white/10">
+                <div
+                  key={g.title}
+                  className="rounded-2xl border border-emerald-800 bg-emerald-900/30 p-4 ring-1 ring-emerald-700/40"
+                >
                   {/* Header */}
                   <button
                     className="flex w-full items-center justify-between gap-2 sm:cursor-default"
@@ -215,8 +221,10 @@ export default function InteractiveFooter({
                     aria-expanded={openIdx === idx}
                     aria-controls={`panel-${idx}`}
                   >
-                    <span className="text-sm font-semibold tracking-wide text-white/90">{g.title}</span>
-                    <span className="sm:hidden">
+                    <span className="text-sm font-semibold tracking-wide text-emerald-100">
+                      {g.title}
+                    </span>
+                    <span className="sm:hidden text-emerald-200/80">
                       <svg
                         className={`h-5 w-5 transition ${openIdx === idx ? "rotate-180" : ""}`}
                         xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +232,11 @@ export default function InteractiveFooter({
                         fill="currentColor"
                         aria-hidden
                       >
-                        <path fillRule="evenodd" d="M12 14.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 12.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z" clipRule="evenodd" />
+                        <path
+                          fillRule="evenodd"
+                          d="M12 14.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 12.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                     </span>
                   </button>
@@ -232,7 +244,18 @@ export default function InteractiveFooter({
                     <motion.ul
                       id={`panel-${idx}`}
                       initial={false}
-                      animate={{ height: openIdx === idx || typeof window !== "undefined" && window.innerWidth >= 640 ? "auto" : 0, opacity: openIdx === idx || (typeof window !== "undefined" && window.innerWidth >= 640) ? 1 : 0 }}
+                      animate={{
+                        height:
+                          openIdx === idx ||
+                          (typeof window !== "undefined" && window.innerWidth >= 640)
+                            ? "auto"
+                            : 0,
+                        opacity:
+                          openIdx === idx ||
+                          (typeof window !== "undefined" && window.innerWidth >= 640)
+                            ? 1
+                            : 0,
+                      }}
                       transition={{ duration: 0.25, ease: "easeOut" }}
                       className="mt-3 space-y-2 overflow-hidden text-sm"
                     >
@@ -240,11 +263,11 @@ export default function InteractiveFooter({
                         <li key={l.label}>
                           <a
                             href={l.href}
-                            className="group inline-flex items-center gap-1 rounded-lg px-1 py-1 text-neutral-300 transition hover:text-white"
+                            className="group inline-flex items-center gap-1 rounded-lg px-1 py-1 text-emerald-200 transition hover:text-emerald-50"
                           >
                             <span className="relative">
                               {l.label}
-                              <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-white transition-[width] group-hover:w-full" />
+                              <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-emerald-300 transition-[width] group-hover:w-full" />
                             </span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +291,7 @@ export default function InteractiveFooter({
         </motion.div>
 
         {/* Barra inferior */}
-        <div className="mt-8 flex flex-row items-center justify-center gap-2 border-t border-white/10 pt-4 text-sm text-neutral-200 md:flex-row">
+        <div className="mt-8 flex flex-row items-center justify-center gap-2 border-t border-emerald-800 pt-4 text-sm text-emerald-200 md:flex-row">
           <p>
             © {year} {brand.name}. Todos los derechos reservados.
           </p>
@@ -284,7 +307,7 @@ export default function InteractiveFooter({
             exit={{ opacity: 0, y: 12 }}
             transition={{ duration: 0.2 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-xl ring-1 ring-black/5 transition hover:translate-y-[-2px]"
+            className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-3 py-2 text-sm font-semibold text-white shadow-xl ring-1 ring-emerald-300/60 transition hover:translate-y-[-2px] hover:bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-300/60"
             aria-label="Volver arriba"
           >
             ↑ Arriba

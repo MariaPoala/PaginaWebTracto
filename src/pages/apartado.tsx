@@ -15,7 +15,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-
 type TractorItem = {
   id: number;
   nombre: string;
@@ -34,7 +33,6 @@ type RepuestoItem = {
   codigo: string;
   compatibilidad: string[];
 };
-
 
 const TRACTORES: TractorItem[] = [
   {
@@ -150,11 +148,11 @@ function AccentTitle({
 }) {
   return (
     <div className="mb-6">
-      <h2 className="text-2xl font-extrabold tracking-tight text-red-800 sm:text-3xl">
+      <h2 className="text-2xl font-extrabold tracking-tight text-emerald-900 sm:text-3xl">
         {children}
       </h2>
       {subtitle && <p className="mt-1 text-slate-500">{subtitle}</p>}
-      <div className="mt-3 h-1 w-28 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-red-600" />
+      <div className="mt-3 h-1 w-28 rounded-full bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-700" />
     </div>
   );
 }
@@ -178,12 +176,12 @@ function Badge({
 type StatProps = { icon: LucideIcon; label: string; value: string | number };
 function Stat({ icon: Icon, label, value }: StatProps) {
   return (
-    <div className="rounded-2xl border border-orange-100 bg-orange-50/40 p-5 shadow-sm">
-      <div className="mb-2 flex items-center gap-2 text-sm text-orange-700">
+    <div className="rounded-2xl border border-emerald-100 bg-emerald-50/40 p-5 shadow-sm">
+      <div className="mb-2 flex items-center gap-2 text-sm text-emerald-700">
         <Icon className="h-4 w-4" />
         <span>{label}</span>
       </div>
-      <div className="text-2xl font-semibold text-red-800">{value}</div>
+      <div className="text-2xl font-semibold text-emerald-900">{value}</div>
     </div>
   );
 }
@@ -191,8 +189,8 @@ function Stat({ icon: Icon, label, value }: StatProps) {
 function CardGlow({ children }: { children: ReactNode }) {
   return (
     <div className="group relative">
-      {/* halo suave */}
-      <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+      {/* halo suave verde */}
+      <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-400/15 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
       {children}
     </div>
   );
@@ -208,7 +206,7 @@ function GradientButton({
   className?: string;
 }) {
   const base =
-    "inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:from-red-700 hover:to-orange-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400";
+    "inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-700 to-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:from-emerald-800 hover:to-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400";
   if (href) {
     return (
       <a href={href} className={`${base} ${className}`}>
@@ -219,11 +217,10 @@ function GradientButton({
   return <button className={`${base} ${className}`}>{children}</button>;
 }
 
-
 function ProductCard({ t }: { t: TractorItem }) {
   return (
     <CardGlow>
-      <article className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+      <article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
         <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
           <img
             src={t.imagen}
@@ -233,32 +230,34 @@ function ProductCard({ t }: { t: TractorItem }) {
           />
           {t.nuevo && (
             <div className="absolute left-3 top-3">
-              <Badge className="bg-orange-100 text-orange-700 ring-orange-200">
+              <Badge className="bg-emerald-100 text-emerald-700 ring-emerald-200">
                 Nuevo
               </Badge>
             </div>
           )}
+          {/* halo verde al hacer hover */}
+          <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-400/12 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
         <div className="space-y-3 p-4">
           <h3 className="line-clamp-1 text-lg font-semibold text-slate-900">
             {t.nombre}
           </h3>
+
           <ul className="flex flex-wrap gap-3 text-sm text-slate-600">
             <li className="inline-flex items-center gap-1">
-              <Star className="h-4 w-4 text-orange-500" /> {t.hp} HP
+              <Star className="h-4 w-4 text-emerald-600" /> {t.hp} HP
             </li>
             <li className="inline-flex items-center gap-1">
-              <Truck className="h-4 w-4 text-orange-500" /> {t.traccion}
+              <Truck className="h-4 w-4 text-emerald-600" /> {t.traccion}
             </li>
             <li className="inline-flex items-center gap-1">
-              <ShieldCheck className="h-4 w-4 text-orange-500" />{" "}
-              {t.transmision}
+              <ShieldCheck className="h-4 w-4 text-emerald-600" /> {t.transmision}
             </li>
           </ul>
 
-          <div className="flex items-center justify-between">          
-            <GradientButton href={"https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20"+ t.nombre}>
+          <div className="flex items-center justify-between">
+            <GradientButton href={`https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20${encodeURIComponent(t.nombre)}`}>
               Cotizar <ArrowRight className="h-4 w-4" />
             </GradientButton>
           </div>
@@ -273,7 +272,7 @@ function PartCard({ p }: { p: RepuestoItem }) {
     <CardGlow>
       <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
         <img
-          src={p.imagen} // aquí va la URL de la imagen que tengas en tu objeto p
+          src={p.imagen}
           alt={p.nombre}
           className="mb-3 h-40 w-full rounded-xl object-cover"
         />
@@ -281,7 +280,7 @@ function PartCard({ p }: { p: RepuestoItem }) {
           <h4 className="line-clamp-1 font-semibold text-slate-900">
             {p.nombre}
           </h4>
-          <Badge className="bg-red-50 text-red-700 ring-red-200">
+          <Badge className="bg-emerald-50 text-emerald-700 ring-emerald-200">
             {p.codigo}
           </Badge>
         </div>
@@ -291,8 +290,8 @@ function PartCard({ p }: { p: RepuestoItem }) {
 
         <div className="mt-4 flex items-center justify-between">
           <a
-            href={"https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20"+ p.nombre}
-            className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-3 py-1.5 text-sm font-medium text-orange-700 transition hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+            href={`https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20${encodeURIComponent(p.nombre)}`}
+            className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 bg-white px-3 py-1.5 text-sm font-medium text-emerald-700 transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           >
             Cotizar <ArrowRight className="h-4 w-4" />
           </a>
@@ -330,30 +329,29 @@ export default function HomeModules(): JSX.Element {
     <main className="bg-white">
       <Section>
         <motion.div {...fadeUp} className="mb-4 flex items-center gap-3">
-          <span className="text-sm text-orange-600">
+          <span className="text-sm text-emerald-600">
             Tractores · Repuestos · Servicio técnico
           </span>
         </motion.div>
 
         <motion.h2
           {...fadeUp}
-          className="mb-3 max-w-3xl text-3xl font-black tracking-tight text-red-800 sm:text-4xl"
+          className="mb-3 max-w-3xl text-3xl font-black tracking-tight text-emerald-900 sm:text-4xl"
         >
           Soluciones integrales en maquinaria agrícola y soporte técnico a todo
           el Perú
         </motion.h2>
-        <div className="mb-8 h-1 w-36 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-red-600" />
+        <div className="mb-8 h-1 w-36 rounded-full bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-700" />
 
         <motion.div
           {...fadeUp}
           className="grid grid-cols-1 gap-4 sm:grid-cols-3"
         >
-      
           <a
             href="/productos"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-red-100 text-red-600 transition group-hover:scale-105">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
               <Tractor className="h-6 w-6" />
             </div>
             <h3 className="mb-1 text-lg font-semibold text-slate-900">
@@ -362,19 +360,19 @@ export default function HomeModules(): JSX.Element {
             <p className="mb-4 text-slate-600">
               Modelos 45–220 HP para campo y obra.
             </p>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 transition group-hover:gap-2.5">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition group-hover:gap-2.5">
               Ver catálogo <ArrowRight className="h-4 w-4" />
             </span>
 
             {/* halo */}
-            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-green-400/15 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
           </a>
 
           <a
             href="/productos"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition group-hover:scale-105">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
               <Wrench className="h-6 w-6" />
             </div>
             <h3 className="mb-1 text-lg font-semibold text-slate-900">
@@ -383,27 +381,27 @@ export default function HomeModules(): JSX.Element {
             <p className="mb-4 text-slate-600">
               Originales y alternativos, envíos nacionales.
             </p>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 transition group-hover:gap-2.5">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition group-hover:gap-2.5">
               Buscar repuesto <ArrowRight className="h-4 w-4" />
             </span>
-            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-green-400/15 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
           </a>
 
           <a
             href="/servicios"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition group-hover:scale-105">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
               <Headset className="h-6 w-6" />
             </div>
             <h3 className="mb-1 text-lg font-semibold text-slate-900">
               Servicio Técnico
             </h3>
             <p className="mb-4 text-slate-600">Atención en campo 24/7.</p>
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 transition group-hover:gap-2.5">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition group-hover:gap-2.5">
               Solicitar atención <ArrowRight className="h-4 w-4" />
             </span>
-            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-red-500/0 via-orange-400/15 to-red-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-green-400/15 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
           </a>
         </motion.div>
       </Section>
@@ -434,7 +432,7 @@ export default function HomeModules(): JSX.Element {
           </AccentTitle>
           <a
             href="/repuestos"
-            className="inline-flex items-center gap-2 rounded-xl border border-orange-300 bg-white px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+            className="inline-flex items-center gap-2 rounded-xl border border-emerald-300 bg-white px-4 py-2 text-sm font-medium text-emerald-700 transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
           >
             Ver catálogo <ArrowRight className="h-4 w-4" />
           </a>
@@ -447,7 +445,7 @@ export default function HomeModules(): JSX.Element {
             </motion.div>
           ))}
           {filtrados.length === 0 && (
-            <div className="col-span-full rounded-2xl border border-dashed border-orange-300 p-10 text-center text-slate-500">
+            <div className="col-span-full rounded-2xl border border-dashed border-emerald-300 p-10 text-center text-slate-500">
               No encontramos resultados con esos filtros.
             </div>
           )}
@@ -457,12 +455,12 @@ export default function HomeModules(): JSX.Element {
       <Section>
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
           <div>
-            <Badge className="bg-red-50 text-red-700 ring-red-200">
+            <Badge className="bg-emerald-50 text-emerald-700 ring-emerald-200">
               Servicio técnico nacional
             </Badge>
-            <h3 className="mt-4 text-2xl font-extrabold text-red-800 sm:text-3xl">
+            <h3 className="mt-4 text-2xl font-extrabold text-emerald-900 sm:text-3xl">
               Mantenimiento y soporte en campo,{" "}
-              <span className="text-orange-600">a todo el Perú</span>
+              <span className="text-emerald-600">a todo el Perú</span>
             </h3>
             <p className="mt-3 text-slate-600">
               Nuestro equipo de técnicos especializados atiende en sitio con
@@ -471,19 +469,19 @@ export default function HomeModules(): JSX.Element {
             </p>
 
             <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <li className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-4 shadow-sm">
-                <Clock className="mt-1 h-5 w-5 text-orange-600" />
+              <li className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm">
+                <Clock className="mt-1 h-5 w-5 text-emerald-600" />
                 <div>
-                  <p className="font-semibold text-red-800">Atención 24/7</p>
+                  <p className="font-semibold text-emerald-900">Atención 24/7</p>
                   <p className="text-sm text-slate-600">
                     Respuesta prioritaria y diagnóstico ágil.
                   </p>
                 </div>
               </li>
-              <li className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-4 shadow-sm">
-                <Truck className="mt-1 h-5 w-5 text-orange-600" />
+              <li className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm">
+                <Truck className="mt-1 h-5 w-5 text-emerald-600" />
                 <div>
-                  <p className="font-semibold text-red-800">
+                  <p className="font-semibold text-emerald-900">
                     Cobertura nacional
                   </p>
                   <p className="text-sm text-slate-600">
@@ -491,19 +489,19 @@ export default function HomeModules(): JSX.Element {
                   </p>
                 </div>
               </li>
-              <li className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-4 shadow-sm">
-                <Wrench className="mt-1 h-5 w-5 text-orange-600" />
+              <li className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm">
+                <Wrench className="mt-1 h-5 w-5 text-emerald-600" />
                 <div>
-                  <p className="font-semibold text-red-800">Taller móvil</p>
+                  <p className="font-semibold text-emerald-900">Taller móvil</p>
                   <p className="text-sm text-slate-600">
                     Herramientas y repuestos en la primera visita.
                   </p>
                 </div>
               </li>
-              <li className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-4 shadow-sm">
-                <ShieldCheck className="mt-1 h-5 w-5 text-orange-600" />
+              <li className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm">
+                <ShieldCheck className="mt-1 h-5 w-5 text-emerald-600" />
                 <div>
-                  <p className="font-semibold text-red-800">Garantía</p>
+                  <p className="font-semibold text-emerald-900">Garantía</p>
                   <p className="text-sm text-slate-600">
                     Trabajo certificado y repuestos garantizados.
                   </p>
@@ -517,13 +515,13 @@ export default function HomeModules(): JSX.Element {
               </GradientButton>
               <a
                 href="https://wa.me/51981830008?text=Hola,%20quiero%20realizar%20mantenimiento%20"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-emerald-400 hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               >
                 WhatsApp técnico
               </a>
-               <a
+              <a
                 href="https://wa.me/51981830008?text=Hola,%20quiero%20realizar%20mantenimiento%20"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-orange-400 hover:bg-orange-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-slate-800 transition hover:border-emerald-400 hover:bg-emerald-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               >
                 WhatsApp técnico
               </a>
@@ -531,7 +529,7 @@ export default function HomeModules(): JSX.Element {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-orange-100 bg-slate-100 shadow-sm">
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-emerald-100 bg-slate-100 shadow-sm">
               <img
                 src="https://www.repository.dealerwebmanager.com/sites/repository.dealerwebmanager.com/files/2018-02/JD_Compromiso_1170x478px.jpg"
                 alt="Servicio técnico en campo"
@@ -539,7 +537,7 @@ export default function HomeModules(): JSX.Element {
                 loading="lazy"
               />
             </div>
-            <div className="pointer-events-none absolute -bottom-4 -right-4 hidden rounded-2xl bg-orange-600/90 px-4 py-3 text-white shadow-lg lg:block">
+            <div className="pointer-events-none absolute -bottom-4 -right-4 hidden rounded-2xl bg-emerald-600/90 px-4 py-3 text-white shadow-lg lg:block">
               <p className="flex items-center gap-2 text-sm">
                 <MapPin className="h-4 w-4" /> Llegamos a tu campo
               </p>
@@ -548,6 +546,5 @@ export default function HomeModules(): JSX.Element {
         </div>
       </Section>
     </main>
-
   );
 }

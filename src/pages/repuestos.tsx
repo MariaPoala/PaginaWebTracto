@@ -32,7 +32,7 @@ export type TractorItem = ProductoBase & {
   tipo: "tractor";
   hp: number;
   traccion: "4x4" | "4x2";
-  transmision: string;
+  compatibl: string;
 };
 
 export type RepuestoItem = ProductoBase & {
@@ -48,91 +48,84 @@ export type Producto = TractorItem | RepuestoItem;
    Datos MOCK (reemplaza por tu API)
 ===================================== */
 const DATA: Producto[] = [
-  // Tractores
   {
-    id: 1,
-    tipo: "tractor",
-    nombre: "Tractor Serie X45",
-    imagen: "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
-    marca: "Agromax",
-    nuevo: true,
-    hp: 90,
-    traccion: "4x4",
-    transmision: "Powershift",
+    "id": 1,
+    "tipo": "repuesto",
+    "codigo": "REP-001",
+    "nombre": "Filtro de aire",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "Donaldson",
+    "nuevo": true,
+    "compatibilidad": ["tractores", "motosierras", "cultivadoras"],
+    "stock": 120
   },
   {
-    id: 2,
-    tipo: "tractor",
-    nombre: "Tractor Serie M70",
-    imagen: "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
-    marca: "Farmtech",
-    hp: 110,
-    traccion: "4x4",
-    transmision: "Synchro",
+    "id": 2,
+    "tipo": "repuesto",
+    "codigo": "REP-002",
+    "nombre": "Pastillas de freno",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "Bosch",
+    "nuevo": true,
+    "compatibilidad": ["camiones", "tractores", "vehículos ligeros"],
+    "stock": 85
   },
   {
-    id: 3,
-    tipo: "tractor",
-    nombre: "Tractor Serie R20",
-    imagen: "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
-    marca: "Terra",
-    hp: 75,
-    traccion: "4x2",
-    transmision: "Manual",
+    "id": 3,
+    "tipo": "repuesto",
+    "codigo": "REP-003",
+    "nombre": "Filtro de aceite",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "Mann-Filter",
+    "nuevo": true,
+    "compatibilidad": ["tractores", "automóviles", "motos"],
+    "stock": 200
   },
   {
-    id: 4,
-    tipo: "tractor",
-    nombre: "Tractor Serie T120",
-    imagen: "https://cgmrental.com.pe/wp-content/uploads/2024/07/CGM-24-1.jpg",
-    marca: "Agromax",
-    nuevo: true,
-    hp: 150,
-    traccion: "4x4",
-    transmision: "CVT",
-  },
-  // Repuestos
-  {
-    id: 101,
-    tipo: "repuesto",
-    nombre: "Filtro de aceite HeavyDuty",
-    imagen: "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
-    marca: "Hydro",
-    codigo: "FD-8921",
-    compatibilidad: ["Serie X45", "Serie R20"],
-    stock: 24,
+    "id": 4,
+    "tipo": "repuesto",
+    "codigo": "REP-004",
+    "nombre": "Bujía de encendido",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "NGK",
+    "nuevo": true,
+    "compatibilidad": ["automóviles", "motos", "generadores"],
+    "stock": 500
   },
   {
-    id: 102,
-    tipo: "repuesto",
-    nombre: "Bomba hidráulica 2200 PSI",
-    imagen: "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
-    marca: "Hydro",
-    codigo: "BH-2200",
-    compatibilidad: ["Serie M70", "Serie T120"],
-    stock: 8,
+    "id": 5,
+    "tipo": "repuesto",
+    "codigo": "REP-005",
+    "nombre": "Amortiguador delantero",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "KYB",
+    "nuevo": true,
+    "compatibilidad": ["camiones", "tractores", "camionetas"],
+    "stock": 40
   },
   {
-    id: 103,
-    tipo: "repuesto",
-    nombre: "Correa dentada premium",
-    imagen: "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
-    marca: "Power",
-    codigo: "CD-5567",
-    compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
-    stock: 46,
+    "id": 6,
+    "tipo": "repuesto",
+    "codigo": "REP-006",
+    "nombre": "Bomba de agua",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "Gates",
+    "nuevo": true,
+    "compatibilidad": ["tractores", "vehículos agrícolas", "camiones"],
+    "stock": 60
   },
   {
-    id: 104,
-    tipo: "repuesto",
-    nombre: "Filtro de aire ciclónico",
-    imagen: "https://vevor-goods.vevor.net/product/CZYYB6LDZYDJT0001/hydraulic-pump-m100-1.2.jpg?x-oss-process=image/format,webp",
-    marca: "Power",
-    codigo: "FA-7710",
-    compatibilidad: ["Serie T120"],
-    stock: 13,
-  },
-];
+    "id": 7,
+    "tipo": "repuesto",
+    "codigo": "REP-007",
+    "nombre": "Filtro de combustible",
+    "imagen": "https://www.mastropierrosa.com.ar/contenido/productos/original/1753220671.png",
+    "marca": "Mahle",
+    "nuevo": true,
+    "compatibilidad": ["tractores", "motores diésel agrícolas", "camiones"],
+    "stock": 150
+  } ]
+;
 
 /* =====================================
    Utilidades
@@ -262,7 +255,7 @@ function TractorCard({ p, view }: { p: TractorItem; view: "grid" | "list" }) {
             <Truck className="h-4 w-4 text-emerald-600" /> {p.traccion}
           </li>
           <li className="inline-flex items-center gap-1">
-            <ShieldCheck className="h-4 w-4 text-emerald-600" /> {p.transmision}
+            {/* <ShieldCheck className="h-4 w-4 text-emerald-600" /> {p.transmision} */}
           </li>
         </ul>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
@@ -384,8 +377,8 @@ export default function ProductosPage(): JSX.Element {
       <Section>
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-2xl font-black tracking-tight text-emerald-900 sm:text-3xl">Productos</h1>
-            <p className="text-slate-600">Tractores y repuestos con soporte técnico en todo el Perú.</p>
+            <h1 className="text-2xl font-black tracking-tight text-emerald-900 sm:text-3xl">Repuestos</h1>
+            <p className="text-slate-600">Los repuestos garantizan el funcionamiento óptimo y prolongan la vida útil de la maquinaria agrícola.</p>
             <div className="mt-3 h-1 w-28 rounded-full bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-700" />
           </div>
 

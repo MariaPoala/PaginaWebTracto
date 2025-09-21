@@ -384,7 +384,7 @@ export default function ProductosPage(): JSX.Element {
       <Section>
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-2xl font-black tracking-tight text-emerald-900 sm:text-3xl">Productos</h1>
+            <h1 className="text-2xl font-black tracking-tight text-emerald-900 sm:text-3xl">Arados</h1>
             <p className="text-slate-600">Tractores y repuestos con soporte técnico en todo el Perú.</p>
             <div className="mt-3 h-1 w-28 rounded-full bg-gradient-to-r from-emerald-700 via-green-600 to-emerald-700" />
           </div>

@@ -26,14 +26,18 @@ margin-bottom: 8px;
   background-color: rgb(115, 255, 0);
 }
 
-.colorheader{
-  background-color: #e7f7ed;
-  text-decoration: #076634;
-  text-decoration-color: #076634;
-
+.header-elegante {
+  @apply bg-red-950 text-white shadow-lg;
 }
 
-.colortexto{
-  text-decoration-color: #076634;
+.button-principal {
+  @apply hidden items-center gap-2 rounded-xl 
+         px-4 py-2 text-sm font-medium text-white 
+         shadow-sm transition 
+         bg-gradient-to-r from-emerald-700 to-green-600
+         hover:from-emerald-800 hover:to-green-700
+         lg:inline-flex
+         focus:outline-none focus:ring-4 
+         focus:ring-emerald-300/60 dark:focus:ring-emerald-700/60;
 }
 
