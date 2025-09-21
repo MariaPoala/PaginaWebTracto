@@ -1,6 +1,8 @@
 import { Producto } from "../pages/productos";
+import { InsumoItem } from "../pages/productos";
+import { ArrowRight } from "lucide-react";
 
-export const INSUMO: Producto[] = [
+export const INSUMO:  InsumoItem[]  = [
   {
     "id": 1,
     "tipo": "insumo",
@@ -68,4 +70,3 @@ export const INSUMO: Producto[] = [
     "stock": 110
   }
 ]
-

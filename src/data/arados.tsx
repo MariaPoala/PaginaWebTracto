@@ -1,6 +1,7 @@
 import { Producto } from "../pages/productos";
+import { AradoItem } from "../pages/productos";
 
-export const ARADOS: Producto[] = [
+export const ARADOS: AradoItem[] = [
   {
     "id": 1,
     "tipo": "arado",

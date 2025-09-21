@@ -14,6 +14,10 @@ import {
   ChevronDown,
   type LucideIcon,
 } from "lucide-react";
+import { ARADOS } from "../data/arados.tsx";
+import { AradoItem } from "./productos";
+import { REPUESTOS } from "../data/repuestos.tsx";
+import { RepuestoItem } from "./productos";
 
 type TractorItem = {
   id: number;
@@ -26,13 +30,13 @@ type TractorItem = {
   nuevo?: boolean;
 };
 
-type RepuestoItem = {
-  id: number;
-  imagen: string,
-  nombre: string;
-  codigo: string;
-  compatibilidad: string[];
-};
+// type RepuestoItem = {
+//   id: number;
+//   imagen: string,
+//   nombre: string;
+//   codigo: string;
+//   compatibilidad: string[];
+// };
 
 const TRACTORES: TractorItem[] = [
   {
@@ -79,50 +83,50 @@ const TRACTORES: TractorItem[] = [
   },
 ];
 
-const REPUESTOS: RepuestoItem[] = [
-  {
-    id: 1,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Filtro de aceite HeavyDuty",
-    codigo: "FD-8921",
-    compatibilidad: ["Serie X45", "Serie R20"],
-  },
-  {
-    id: 2,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Bomba hidráulica 2200 PSI",
-    codigo: "BH-2200",
-    compatibilidad: ["Serie M70", "Serie T120"],
-  },
-  {
-    id: 3,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Correa dentada premium",
-    codigo: "CD-5567",
-    compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
-  },
-  {
-    id: 4,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Filtro de aire ciclónico",
-    codigo: "FA-7710",
-    compatibilidad: ["Serie T120"],
-  },
-  {
-    id: 5,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Correa dentada premium",
-    codigo: "CD-5567",
-    compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
-  },
-  {
-    id: 6,
-    imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
-    nombre: "Filtro de aire ciclónico",
-    codigo: "FA-7710",
-    compatibilidad: ["Serie T120"],
-  },
-];
+// const REPUESTOS: RepuestoItem[] = [
+//   {
+//     id: 1,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Filtro de aceite HeavyDuty",
+//     codigo: "FD-8921",
+//     compatibilidad: ["Serie X45", "Serie R20"],
+//   },
+//   {
+//     id: 2,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Bomba hidráulica 2200 PSI",
+//     codigo: "BH-2200",
+//     compatibilidad: ["Serie M70", "Serie T120"],
+//   },
+//   {
+//     id: 3,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Correa dentada premium",
+//     codigo: "CD-5567",
+//     compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
+//   },
+//   {
+//     id: 4,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Filtro de aire ciclónico",
+//     codigo: "FA-7710",
+//     compatibilidad: ["Serie T120"],
+//   },
+//   {
+//     id: 5,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Correa dentada premium",
+//     codigo: "CD-5567",
+//     compatibilidad: ["Serie X45", "Serie M70", "Serie R20"],
+//   },
+//   {
+//     id: 6,
+//     imagen: "https://modasa.pe/media/catalog/product/cache/00a894dfee62c148f81c61d3aaacbf72/r/5/r50offl0014.png",
+//     nombre: "Filtro de aire ciclónico",
+//     codigo: "FA-7710",
+//     compatibilidad: ["Serie T120"],
+//   },
+// ];
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -217,10 +221,13 @@ function GradientButton({
   return <button className={`${base} ${className}`}>{children}</button>;
 }
 
-function ProductCard({ t }: { t: TractorItem }) {
+
+
+function ProductCardArado({ t }: { t: AradoItem }) {
   return (
     <CardGlow>
       <article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+        {/* Imagen */}
         <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
           <img
             src={t.imagen}
@@ -235,29 +242,33 @@ function ProductCard({ t }: { t: TractorItem }) {
               </Badge>
             </div>
           )}
-          {/* halo verde al hacer hover */}
-          <div className="pointer-events-none absolute inset-0 -z-[1] rounded-2xl bg-gradient-to-r from-emerald-500/0 via-emerald-400/12 to-emerald-500/0 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
+        {/* Contenido */}
         <div className="space-y-3 p-4">
+          {/* Nombre */}
           <h3 className="line-clamp-1 text-lg font-semibold text-slate-900">
             {t.nombre}
           </h3>
 
-          <ul className="flex flex-wrap gap-3 text-sm text-slate-600">
-            <li className="inline-flex items-center gap-1">
-              <Star className="h-4 w-4 text-emerald-600" /> {t.hp} HP
-            </li>
-            <li className="inline-flex items-center gap-1">
-              <Truck className="h-4 w-4 text-emerald-600" /> {t.traccion}
-            </li>
-            <li className="inline-flex items-center gap-1">
-              <ShieldCheck className="h-4 w-4 text-emerald-600" /> {t.transmision}
-            </li>
-          </ul>
+          {/* Marca y código */}
+          <p className="text-sm text-slate-600">
+            <span className="font-medium text-emerald-700">{t.marca}</span> ·{" "}
+            Código: {t.codigo}
+          </p>
 
+          {/* Stock
+          <p className="text-sm text-slate-600">
+            Stock disponible: <span className="font-medium">{t.stock}</span>
+          </p> */}
+
+          {/* Botón cotizar */}
           <div className="flex items-center justify-between">
-            <GradientButton href={`https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el:%20${encodeURIComponent(t.nombre)}`}>
+            <GradientButton
+              href={`https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el%20insumo:%20${encodeURIComponent(
+                t.nombre
+              )}`}
+            >
               Cotizar <ArrowRight className="h-4 w-4" />
             </GradientButton>
           </div>
@@ -266,7 +277,60 @@ function ProductCard({ t }: { t: TractorItem }) {
     </CardGlow>
   );
 }
+function ProductCardRepuestos({ t }: { t: RepuestoItem }) {
+  return (
+    <CardGlow>
+      <article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+        {/* Imagen */}
+        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+          <img
+            src={t.imagen}
+            alt={t.nombre}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          {t.nuevo && (
+            <div className="absolute left-3 top-3">
+              <Badge className="bg-emerald-100 text-emerald-700 ring-emerald-200">
+                Nuevo
+              </Badge>
+            </div>
+          )}
+        </div>
 
+        {/* Contenido */}
+        <div className="space-y-3 p-4">
+          {/* Nombre */}
+          <h3 className="line-clamp-1 text-lg font-semibold text-slate-900">
+            {t.nombre}
+          </h3>
+
+          {/* Marca y código */}
+          <p className="text-sm text-slate-600">
+            <span className="font-medium text-emerald-700">{t.marca}</span> ·{" "}
+            Código: {t.codigo}
+          </p>
+
+          {/* Stock
+          <p className="text-sm text-slate-600">
+            Stock disponible: <span className="font-medium">{t.stock}</span>
+          </p> */}
+
+          {/* Botón cotizar */}
+          <div className="flex items-center justify-between">
+            <GradientButton
+              href={`https://wa.me/51981830008?text=Hola,%20quiero%20información%20sobre%20el%20insumo:%20${encodeURIComponent(
+                t.nombre
+              )}`}
+            >
+              Cotizar <ArrowRight className="h-4 w-4" />
+            </GradientButton>
+          </div>
+        </div>
+      </article>
+    </CardGlow>
+  );
+}
 function PartCard({ p }: { p: RepuestoItem }) {
   return (
     <CardGlow>
@@ -330,7 +394,7 @@ export default function HomeModules(): JSX.Element {
       <Section>
         <motion.div {...fadeUp} className="mb-4 flex items-center gap-3">
           <span className="text-sm text-emerald-600">
-            Tractores · Repuestos · Servicio técnico
+            Productos agricolas · Servicio técnico
           </span>
         </motion.div>
 
@@ -409,18 +473,16 @@ export default function HomeModules(): JSX.Element {
       <Section>
         <div className="mb-6 flex items-end justify-between gap-4">
           <AccentTitle subtitle="Rendimiento, potencia y respaldo postventa.">
-            Tractores
+            Arados
           </AccentTitle>
-          <GradientButton href="/productos">
+          <GradientButton href="/arados">
             Ver todos <ArrowRight className="h-4 w-4" />
           </GradientButton>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {TRACTORES.map((t) => (
-            <motion.div key={t.id} {...fadeUp}>
-              <ProductCard t={t} />
-            </motion.div>
+          {ARADOS.slice(0, 4).map((arado) => (
+            <ProductCardArado key={arado.id} t={arado} />
           ))}
         </div>
       </Section>
@@ -439,7 +501,7 @@ export default function HomeModules(): JSX.Element {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filtrados.map((p) => (
+          {filtrados.slice(0, 3).map((p) => (
             <motion.div key={p.id} {...fadeUp}>
               <PartCard p={p} />
             </motion.div>

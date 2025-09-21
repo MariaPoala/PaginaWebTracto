@@ -1,6 +1,7 @@
 import { Producto } from "../pages/productos";
+import { RepuestoItem } from "../pages/productos";
 
-export const REPUESTOS: Producto[] = [
+export const REPUESTOS: RepuestoItem[] = [
   {
     "id": 1,
     "tipo": "repuesto",

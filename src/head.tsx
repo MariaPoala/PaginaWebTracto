@@ -127,7 +127,7 @@ export default function Header({
               </div>
             )}
             <span className="hidden text-[15px] font-extrabold tracking-tight text-emerald-900 sm:block dark:text-emerald-100">
-              {brand?.name}
+              {brand?.name}<br /> Tecnología al servicio de la industria
             </span>
           </a>
 

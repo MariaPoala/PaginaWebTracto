@@ -81,7 +81,7 @@ const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
 };
 
 export default function InteractiveFooter({
-  brand = { name: "Tracto Centro Peru ", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
+  brand = { name: "Tracto Centro Del Peru ", tagline: "Ofrecemos soluciones completas en maquinaria agrícola e industrial. Contamos con venta de tractores y repuestos de calidad garantizada. Brindamos servicios técnicos especializados para el óptimo rendimiento de su equipo. Somos su socio de confianza para impulsar productividad y crecimiento." },
   groups = DEFAULT_GROUPS,
   languages = ["ES", "EN", "PT"],
   className = "",
