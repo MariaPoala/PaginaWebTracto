@@ -59,7 +59,7 @@ export interface SurcadoraItem extends ProductoBase {
 
 
 
-export type Producto = TractorItem | RepuestoItem | ProductoBase | AradoItem| InsumoItem| RastraItem| SurcadoraItem;
+export type Producto = TractorItem | RepuestoItem | ProductoBase | AradoItem | InsumoItem | RastraItem | SurcadoraItem;
 
 
 /* =====================================
@@ -133,7 +133,15 @@ export default function Productos({ titulo, descripcion, data, tipoFiltro }: Pro
                 transition={{ duration: 0.3 }}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-xl p-4"
               >
-                <img src={p.imagen} alt={p.nombre} className="mb-3 w-full rounded-lg object-cover aspect-[4/3]" />
+                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg">
+  <img
+    src={p.imagen}
+    alt={p.nombre}
+    className="h-full w-full object-contain transition-transform duration-500 hover:scale-105"
+  />
+</div>
+
+
                 <h3 className="truncate text-lg font-semibold text-slate-900">{p.nombre}</h3>
                 <p className="text-sm text-slate-600">{p.marca ?? "Sin marca"}</p>
                 <a

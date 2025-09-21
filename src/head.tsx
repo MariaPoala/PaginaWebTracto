@@ -104,7 +104,7 @@ export default function Header({
         "sticky top-0 z-50 w-full transition-all border-b border-emerald-800/15",
         scrolled
           ? "backdrop-blur-xl supports-[backdrop-filter]:bg-white/65 dark:supports-[backdrop-filter]:bg-emerald-950/60 border-b border-emerald-800/15 shadow-[0_8px_30px_rgba(2,44,34,0.07)]"
-          : "bg-white/80 dark:bg-emerald-950/50"
+          : "bg-white/80 dark:bg-white"
       )}
       role="banner"
     >

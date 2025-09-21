@@ -228,21 +228,22 @@ function ProductCardArado({ t }: { t: AradoItem }) {
     <CardGlow>
       <article className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
         {/* Imagen */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-          <img
-            src={t.imagen}
-            alt={t.nombre}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          {t.nuevo && (
-            <div className="absolute left-3 top-3">
-              <Badge className="bg-emerald-100 text-emerald-700 ring-emerald-200">
-                Nuevo
-              </Badge>
-            </div>
-          )}
-        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
+  <img
+    src={t.imagen}
+    alt={t.nombre}
+    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    loading="lazy"
+  />
+  {t.nuevo && (
+    <div className="absolute left-3 top-3">
+      <Badge className="bg-emerald-100 text-emerald-700 ring-emerald-200">
+        Nuevo
+      </Badge>
+    </div>
+  )}
+</div>
+
 
         {/* Contenido */}
         <div className="space-y-3 p-4">
@@ -335,11 +336,14 @@ function PartCard({ p }: { p: RepuestoItem }) {
   return (
     <CardGlow>
       <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
-        <img
-          src={p.imagen}
-          alt={p.nombre}
-          className="mb-3 h-40 w-full rounded-xl object-cover"
-        />
+        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl">
+  <img
+    src={p.imagen}
+    alt={p.nombre}
+    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+  />
+</div>
+
         <div className="mb-2 flex items-center justify-between">
           <h4 className="line-clamp-1 font-semibold text-slate-900">
             {p.nombre}
