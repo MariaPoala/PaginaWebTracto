@@ -416,20 +416,20 @@ export default function HomeModules(): JSX.Element {
           className="grid grid-cols-1 gap-4 sm:grid-cols-3"
         >
           <a
-            href="/productos"
+            href="/arados"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
               <Tractor className="h-6 w-6" />
             </div>
             <h3 className="mb-1 text-lg font-semibold text-slate-900">
-              Venta de Tractores
+              Venta de Arados, Rastras 
             </h3>
             <p className="mb-4 text-slate-600">
-              Modelos 45–220 HP para campo y obra.
+              Comercialización de arados y rastras para mejorar el rendimiento agrícola.
             </p>
             <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 transition group-hover:gap-2.5">
-              Ver catálogo <ArrowRight className="h-4 w-4" />
+              Ver productos <ArrowRight className="h-4 w-4" />
             </span>
 
             {/* halo */}
@@ -437,7 +437,7 @@ export default function HomeModules(): JSX.Element {
           </a>
 
           <a
-            href="/productos"
+            href="/repuestos"
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:shadow-xl"
           >
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600 transition group-hover:scale-105">
