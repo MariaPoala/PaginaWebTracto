@@ -57,8 +57,8 @@ const DEFAULT_GROUPS: LinkGroup[] = [
 const SocialIcon = ({ name }: { name: "x" | "ig" | "in" | "yt" }) => {
   const icons = {
     x: (
-      <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5 fill-current">
-        <path d="M18.244 2H21l-6.544 7.48L22 22h-6.873l-4.79-6.24L4.8 22H2l7.09-8.1L2 2h6.873l4.43 5.77L18.244 2Zm-2.408 18h1.87L8.3 4H6.43l9.406 16Z" />
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5 fill-current">
+        <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116c.73 0 1.324-.593 1.324-1.326V1.326C24 .593 23.407 0 22.675 0z" />
       </svg>
     ),
     ig: (
@@ -96,7 +96,7 @@ export default function InteractiveFooter({
     typeof window === "undefined"
       ? "light"
       : (localStorage.getItem("theme") as "light" | "dark") ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
   );
 
   // Sync theme with document
@@ -159,13 +159,13 @@ export default function InteractiveFooter({
           {/* Col brand + tagline */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-3">
-        
-                <img
-                  src="./logo.png"
-                  alt="T"
-                  className="h-8 w-8  "
-                />
-             
+
+              <img
+                src="./logo.png"
+                alt="T"
+                className="h-8 w-8  "
+              />
+
               <span className="text-lg font-semibold tracking-tight text-emerald-50">
                 {brand.name}
               </span>
@@ -179,8 +179,8 @@ export default function InteractiveFooter({
             {/* Social */}
             <div className="mt-6 flex items-center gap-3">
               {([
-                { name: "x", href: "#" },
-                { name: "ig", href: "#" },
+                { name: "x", href: "https://www.facebook.com/people/Tracto-Centro-Peru/100057504855557/" },
+                { name: "ig", href: "https://www.instagram.com/accounts/login/?next=%2Ftractocentroperu%2F&source=omni_redirect" },
                 { name: "in", href: "#" },
                 { name: "yt", href: "#" },
               ] as const).map((s) => (
@@ -243,12 +243,12 @@ export default function InteractiveFooter({
                       animate={{
                         height:
                           openIdx === idx ||
-                          (typeof window !== "undefined" && window.innerWidth >= 640)
+                            (typeof window !== "undefined" && window.innerWidth >= 640)
                             ? "auto"
                             : 0,
                         opacity:
                           openIdx === idx ||
-                          (typeof window !== "undefined" && window.innerWidth >= 640)
+                            (typeof window !== "undefined" && window.innerWidth >= 640)
                             ? 1
                             : 0,
                       }}
