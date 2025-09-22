@@ -103,8 +103,8 @@ export default function Header({
       className={cn(
         "sticky top-0 z-50 w-full transition-all border-b border-emerald-800/15",
         scrolled
-          ? "backdrop-blur-xl supports-[backdrop-filter]:bg-white/65 dark:supports-[backdrop-filter]:bg-emerald-950/60 border-b border-emerald-800/15 shadow-[0_8px_30px_rgba(2,44,34,0.07)]"
-          : "bg-white/80 dark:bg-white"
+          ? "backdrop-blur-xl supports-[backdrop-filter]:bg-emerald-800/15 dark:supports-[backdrop-filter]:bg-emerald-950/60 border-b border-emerald-800/15 shadow-[0_8px_30px_rgba(2,44,34,0.07)]"
+          : "bg-emerald-800 dark:bg-emerald-800"
       )}
       role="banner"
     >
@@ -126,7 +126,7 @@ export default function Header({
                 {brand?.name?.[0] || "T"}
               </div>
             )}
-            <span className="hidden text-[15px] font-extrabold tracking-tight text-emerald-900 sm:block dark:text-emerald-100">
+            <span className="hidden text-[15px] font-extrabold tracking-tight text-white sm:block ">
               {brand?.name}<br /> Tecnología al servicio de la industria
             </span>
           </a>
